@@ -1,7 +1,10 @@
 from scrapy.utils.project import get_project_settings
+from factorSpider.items import SupplydataItem,TransactiondataItem
 import pymysql
 
-class SupplydataPipeline:
+
+# 房天下管道
+class FtxPipeline:
     # def open_spider(self, spider):
     #     self.fp = open('supplyData.json', 'w', encoding='utf-8')
     #
@@ -35,21 +38,29 @@ class SupplydataPipeline:
         self.cursor = self.conn.cursor()
 
     def process_item(self, item, spider):
-        if spider.name == 'SupplydataSpider':
-            sql = 'insert into supply_data(time,supply_num,supply_area,supply_price,floor_price) values("{}",{},{},{},{})'.format(
-                item['time'],
-                item['supply_num'],
-                item['supply_area'],
-                item['supply_price'],
-                item['floor_price'],
-            )
-            print(3)
+        if spider.name=='FtxSpider':
+            sql = ''
+            if isinstance(item,SupplydataItem):
+                sql = 'insert into supply_data(time,supply_num,supply_area,supply_price,floor_price) values("{}",{},{},{},{})'.format(
+                    item['time'],
+                    item['supply_num'],
+                    item['supply_area'],
+                    item['supply_price'],
+                    item['floor_price'],
+                )
+            elif isinstance(item,TransactiondataItem):
+                sql ='insert into transaction_data(time,transaction_num,transaction_area,transaction_price,floor_price) values("{}",{},{},{},{})'.format(
+                    item['time'],
+                    item['transaction_num'],
+                    item['transaction_area'],
+                    item['transaction_price'],
+                    item['floor_price'],
+                )
             try:
                 # 执行sql语句
                 self.cursor.execute(sql)
                 # 执行sql语句
                 self.conn.commit()
-                print('success')
             except:
                 # 发生错误时回滚
                 self.conn.rollback()
@@ -61,16 +72,14 @@ class SupplydataPipeline:
         self.cursor.close()
         self.conn.close()
 
-class TransactiondataPipeline:
-    def open_spider(self, spider):
-        self.fp = open('TransactionData.json', 'w', encoding='utf-8')
-
-    def process_item(self, item, spider):
-        print(spider.name)
-        if spider.name=='TransactiondataSpider':
-            print(4)
-            self.fp.write(str(item))
-        return item
-
-    def close_spider(self, spider):
-        self.fp.close()
+# class TransactiondataPipeline:
+#     def open_spider(self, spider):
+#         self.fp = open('TransactionData.json', 'w', encoding='utf-8')
+#
+#     def process_item(self, item, spider):
+#         if isinstance(item,TransactiondataItem):
+#             self.fp.write(str(item))
+#         return item
+#
+#     def close_spider(self, spider):
+#         self.fp.close()

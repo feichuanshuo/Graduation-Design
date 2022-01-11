@@ -1,23 +1,45 @@
 # Graduation-Design
 基于爬虫技术的西安房地产发展影响因素数据库设计
 
+## 一、项目简介
+
+- 分析、识别西安市房地产发展的供需影响因素（宏观因素和微观因素）
+- 设计爬虫软件获取房地产发展的影响因素数据
+- 构建房地产发展的影响因素数据库
+- 基于上述数据的人工智能应答系统设计
+
+## 二、部署步骤
+
+## 三、目录结构描述
+
+```
+factor_ui				前端，数据可视化
+factorSpider			爬虫
+```
+
+## 四、项目进度
+
 ### 1.宏观：
 
+```
 国家政策（主席）方面的影响因素
 经济（国务院）
 文化
+```
 
 ### 2.中观：
 
+```
 西安在西部地区的影响因素，人（进入人口）、财（投资公司）、物（科技园）
+```
 
 ### 3.微观：
 
-供给（拿地的数量和价格）
-https://fdc.fang.com/data/land/land_xa.htm
-
-url:
-https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2021.05&EndTime=2021.10
+```
+供给、成交（拿地的数量和价格）
+		https://fdc.fang.com/data/land/land_xa.htm
+		url:
+https://fdc.fang.com/data/ajax/LandPicTable.aspxDataType=1&LandType=&Locus=610100&Time=m&BeginTime=2021.05&EndTime=2021.10
 
 西安对医疗、交通和教育的投资
 
@@ -25,5 +47,6 @@ https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=6101
 
 学历结构、平均工作年龄
 房地产舆情
+```
 
 数据源： 百度指数，天涯论坛，房天下，安居客
