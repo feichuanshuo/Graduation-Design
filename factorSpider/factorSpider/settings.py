@@ -66,6 +66,7 @@ LOG_FILE = 'projectLog.log'
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'factorSpider.pipelines.FtxPipeline': 300,
+   'factorSpider.pipelines.GjsjPipeline':301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
