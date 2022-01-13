@@ -27,7 +27,7 @@ factorSpider			爬虫
 
   微观：
 
-   	供给、成交（拿地的数量和价格）
+  ​	供给、成交（拿地的数量和价格）
 
   ```
   房天下：https://fdc.fang.com/data/land/land_xa.htm
@@ -47,16 +47,14 @@ factorSpider			爬虫
   url:'https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[{"wdcode":"reg","valuecode":"610100"}]&dfwds=[{"wdcode":"zb","valuecode":"A08"},{"wdcode":"sj","valuecode":"LAST20"}]&k1='+时间戳+"&h=1"
   
   财政和金融
-  url:'https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[{"wdcode":"reg","valuecode":"610100"}]&dfwds=[{"wdcode":"zb","valuecode":"A04"},{"wdcode":"sj","valuecode":"LAST20"}]&k1='+时间戳+"&h=1",
-          
-  运输和邮电（邮政局(所)数(处)、固定电话用户数(万户)）
-  url:
+  url:'https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[{"wdcode":"reg","valuecode":"610100"}]&dfwds=[{"wdcode":"zb","valuecode":"A04"},{"wdcode":"sj","valuecode":"LAST20"}]&k1='+时间戳+"&h=1"
   
   噪声监测（道路交通等效声级dB(A)、环境噪声等效声级dB(A)）
-  url:
+  url:'https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[{"wdcode":"reg","valuecode":"610100"}]&dfwds=[{"wdcode":"zb","valuecode":"A0A"},{"wdcode":"sj","valuecode":"LAST20"}]&k1='+时间戳+"&h=1"
+  
   房地产舆情 数据源： 百度指数，天涯论坛，房天下，安居客
   ```
-
+  
   
 
 - #### 数据库
@@ -90,6 +88,19 @@ factorSpider			爬虫
   --savings_balance		城乡居民储蓄年末余额(亿元)
   --student_num			普通本专科学生(万人)
   ```
+
+  城市环境数据--environment_data
+
+  ```
+  --year					年份
+  --hospital_num			医院数(个)
+  --doctor_num			执业(助理)医师数(万人)
+  --cinema_num			剧场、影剧院数(个)
+  --traffic_noise			道路交通等效声级dB(A)
+  --ambient_noise 		
+  ```
+
+  
 
 - #### 前端
 

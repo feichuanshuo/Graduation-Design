@@ -1,5 +1,5 @@
 from scrapy.utils.project import get_project_settings
-from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem
+from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem,EnvironmentdataItem
 import pymysql
 
 
@@ -98,8 +98,8 @@ class GjsjPipeline:
 
     def process_item(self,item, spider):
         if spider.name== 'GjsjSpider' :
+            sql = ''
             if isinstance(item,PopulationdataItem):
-                sql = ''
                 if item.get('savings_balance',None)==None and item.get('student_num',None)==None:
                     sql = 'insert into population_data(year, population_num, average_wage) values ("{}",{},{})'.format(
                         item['year'],
@@ -116,14 +116,28 @@ class GjsjPipeline:
                         item['savings_balance'],
                         item['year']
                     )
-                try:
-                    # 执行sql语句
-                    self.cursor.execute(sql)
-                    # 执行sql语句
-                    self.conn.commit()
-                except:
-                    # 发生错误时回滚
-                    self.conn.rollback()
+            elif isinstance(item,EnvironmentdataItem):
+                if item.get('traffic_noise',None)==None and item.get('ambient_noise',None)==None:
+                    sql = 'insert into environment_data(year,hospital_num,doctor_num,cinema_num) values ("{}",{},{},{}) '.format(
+                        item['year'],
+                        item['hospital_num'],
+                        item['doctor_num'],
+                        item['cinema_num']
+                    )
+                elif item.get('traffic_noise',None)!=None and item.get('ambient_noise',None)!=None:
+                    sql = 'update environment_data SET traffic_noise={},ambient_noise={} where year="{}"'.format(
+                        item['traffic_noise'],
+                        item['ambient_noise'],
+                        item['year'],
+                    )
+            try:
+                # 执行sql语句
+                self.cursor.execute(sql)
+                # 执行sql语句
+                self.conn.commit()
+            except:
+                # 发生错误时回滚
+                self.conn.rollback()
 
         return item
     def close_spider(self, spider):

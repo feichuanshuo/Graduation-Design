@@ -20,3 +20,11 @@ class PopulationdataItem(scrapy.Item):
     average_wage = scrapy.Field()
     savings_balance = scrapy.Field()
     student_num = scrapy.Field()
+
+class EnvironmentdataItem(scrapy.Item):
+    year = scrapy.Field()
+    hospital_num = scrapy.Field()
+    doctor_num = scrapy.Field()
+    cinema_num = scrapy.Field()
+    traffic_noise = scrapy.Field()
+    ambient_noise = scrapy.Field()
