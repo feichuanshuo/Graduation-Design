@@ -12,7 +12,7 @@ def supply_data_list():
         result = Supply_data.query.order_by(Supply_data.time.desc()).all()[0:len]
         for item in result:
             element = {
-                'time' : str(item.time),
+                'time' : str(item.time)[0:7],
                 'supply_num':item.supply_num,
                 'supply_area':item.supply_area,
                 'supply_price':item.supply_price,

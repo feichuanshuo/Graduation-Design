@@ -32,16 +32,15 @@ class LeftMenu extends Component {
 
     render() {
         return (
-            <div>
-                <Menu
-                    // defaultSelectedKeys={this.props.location.pathname.split('/').reverse()[0]}
-                    // defaultOpenKeys={this.props.location.pathname.split('/').splice(2)}
-                    mode="inline"
-                    theme="light"
-                >
-                    {this.createMenu(menuList)}
-                </Menu>
-            </div>
+            <Menu
+                // defaultSelectedKeys={this.props.location.pathname.split('/').reverse()[0]}
+                // defaultOpenKeys={this.props.location.pathname.split('/').splice(2)}
+                mode="inline"
+                theme="light"
+                style={{height:'100%'}}
+            >
+                {this.createMenu(menuList)}
+            </Menu>
         );
     }
 }

@@ -2,10 +2,7 @@
 import {
     AppstoreOutlined,
     HomeOutlined,
-    TeamOutlined,
     MailOutlined,
-    UserOutlined,
-    TrophyOutlined,
     BarsOutlined,
     TagsOutlined,
     FileTextOutlined,
@@ -13,7 +10,9 @@ import {
     FrownOutlined,
     AlertOutlined,
     AndroidOutlined,
-    BankOutlined
+    BankOutlined,
+    PayCircleOutlined,
+    MoneyCollectOutlined
 } from '@ant-design/icons';
 const menuList=[
     {
@@ -23,21 +22,21 @@ const menuList=[
         path:'/home'
     },
     {
-        title:'成员管理',
-        key:'member_mgt',
-        icon: TeamOutlined,
+        title:'土地信息',
+        key:'land_information',
+        icon: BankOutlined,
         children:[
             {
-                title:'用户管理',
-                key:'user',
-                icon:UserOutlined,
-                path:'/member_mgt/user'
+                title:'供给数据',
+                key:'supply_data',
+                icon:MoneyCollectOutlined,
+                path:'/land_information/supply_data'
             },
             {
-                title:'代理管理',
-                key:'agent',
-                icon:TrophyOutlined,
-                path:'/member_mgt/agent'
+                title:'成交数据',
+                key:'transaction_data',
+                icon:PayCircleOutlined,
+                path:'/land_information/transaction_data'
             },
         ]
     },

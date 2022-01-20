@@ -1,6 +1,6 @@
 def Success(data):
     return {
-        'code':200,
+        'code':10000,
         'data':data,
         'msg':'success'
     }
