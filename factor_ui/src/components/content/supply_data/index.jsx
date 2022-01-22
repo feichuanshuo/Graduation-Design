@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {Card, message, Table} from 'antd';
-import { Mix } from '@ant-design/plots';
+import { Card, message, Table, Select } from 'antd';
+import { DualAxes } from '@ant-design/plots';
 
 import {reqSupplyData} from "../../../api";
 import {SUCCESS_CODE} from "../../../config";
+
+const { Option } = Select;
 
 //表格配置
 const columns = [
@@ -38,33 +40,25 @@ class SupplyData extends Component {
 
     state = {
         data:[],
-        time_area:[],
-        time_price:[]
+        chartsData:[]
     }
 
     getDataList = (len)=>{
         reqSupplyData(len).then((res)=>{
             const {data,code,msg}= res.data
             if(code===SUCCESS_CODE){
-                let time_area = []
-                let time_price = []
+                let chartsData=[]
                 data.forEach((item)=>{
-                    time_area.push({
-                        date:item.time,
-                        value:parseFloat((item.supply_area/10000).toFixed(2)),
-                    })
-                    time_price.push({
-                        dare:item.time,
-                        value:item.supply_price
+                    chartsData.push({
+                        time:item.time,
+                        area:item.supply_area,
+                        price:item.supply_price
                     })
                 })
-                time_area=time_area.reverse()
-                time_price=time_price.reverse()
-                console.log(time_price)
+                chartsData=chartsData.reverse()
                 this.setState({
                     data,
-                    time_area,
-                    time_price
+                    chartsData
                 })
             }
             else{
@@ -76,84 +70,101 @@ class SupplyData extends Component {
     }
 
     componentDidMount() {
-        this.getDataList(10)
+        this.getDataList(6)
     }
 
     render() {
-        const {data,time_area,time_price} = this.state
+        const {data,chartsData} = this.state
+
+        // 数据图配置项
         const config = {
-            appendPadding: 8,
-            tooltip: {
-                shared: true,
+            data: [chartsData, chartsData],
+            xField: 'time',
+            yField: ['area', 'price'],
+            meta: {
+                area: {
+                    alias: '供应面积(万㎡) ',
+                    formatter: (v) => {
+                        return Number((v / 10000).toFixed(2));
+                    },
+                },
+                price: {
+                    alias: '供应均价(元/㎡)',
+                    formatter: (v) => {
+                        return v;
+                    },
+                },
             },
-            syncViewPadding: true,
-            plots: [
+            geometryOptions: [
                 {
-                    type: 'column',
-                    options: {
-                        data:time_area,
-                        xField: 'date',
-                        yField: 'value',
-                        yAxis: {
-                            max: 400,
-                        },
-                        meta: {
-                            date: {
-                                sync: true,
-                            },
-                            value: {
-                                alias: '供应面积(万㎡)',
-                            },
-                        },
-                        label: {
-                            position: 'middle',
-                        },
+                    geometry: 'column',
+                    color: '#5B8FF9',
+                    label: {
+                        position: 'middle',
                     },
                 },
                 {
-                    type: 'line',
-                    options: {
-                        data: time_price,
-                        xField: 'date',
-                        yField: 'value',
-                        xAxis: false,
-                        yAxis: {
-                            line: null,
-                            grid: null,
-                            position: 'right',
-                            max: 20000,
+                    geometry: 'line',
+                    color: '#29cae4',
+                    point: {
+                        size: 5,
+                        shape: 'diamond',
+                        style: {
+                            fill: 'white',
+                            stroke: '#29cae4',
+                            lineWidth: 2,
                         },
-                        meta: {
-                            date: {
-                                sync: 'date',
-                            },
-                            value: {
-                                alias: '供应均价(元/㎡)',
-                            },
-                        },
-                        smooth: true,
-                        label: {
-                            callback: (value) => {
-                                return {
-                                    offsetY: value,
-                                    style: {
-                                        fill: '#1AAF8B',
-                                        fontWeight: 700,
-                                        stroke: '#fff',
-                                        lineWidth: 1,
-                                    },
-                                };
-                            },
-                        },
-                        color: '#1AAF8B',
                     },
                 },
             ],
+            xAxis: {
+                label: {
+                    autoRotate: true,
+                    autoHide: false,
+                    autoEllipsis: false,
+                },
+            },
+            yAxis: {
+                area: {
+                    label: {
+                        formatter: (v) => {
+                            return `${v}`;
+                        },
+                    },
+                },
+                price: {
+                    label: {
+                        formatter: (v) => {
+                            return `${v}`;
+                        },
+                    },
+
+                },
+            },
+            legend: {
+                itemName: {
+                    formatter: (text, item) => {
+                        return item.value === 'area' ? '供应面积(万㎡)' : '供应均价(元/㎡)';
+                    },
+                },
+            },
         };
+
         return (
-            <Card title={"供给数据"} className={"data-card"} bodyStyle={{height:'100%',backgroundColor:'whitesmoke',padding:0,borderTop:'solid whitesmoke'}}>
+            <Card
+                className={"data-card"}
+                title={"供给数据"}
+                extra={
+                    <Select className="data-card-select" defaultValue="6" onChange={this.getDataList}>
+                        <Option value="6">最近半年</Option>
+                        <Option value="12">最近一年</Option>
+                        <Option value="24">最近两年</Option>
+                    </Select>
+                }
+                bodyStyle={{height:'100%',backgroundColor:'whitesmoke',padding:0,borderTop:'solid whitesmoke'}}
+            >
                 <div className={"data-charts"}>
-                    <Mix {...config} />
+                    <DualAxes {...config} />
                 </div>
                 <div className={"data-table"}>
                     <Table columns={columns} dataSource={data} pagination={false}/>

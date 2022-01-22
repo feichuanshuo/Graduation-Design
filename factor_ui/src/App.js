@@ -53,7 +53,7 @@ class App extends Component {
                             <Route path={"/land_information/transaction_data"} element={<TransactionData/>}/>
                         </Routes>
                     </Content>
-                    <Footer>Footer</Footer>
+                    <Footer className="app-footer">西安房地产发展影响因素分析</Footer>
                 </Layout>
             </Layout>
         );
