@@ -18,21 +18,45 @@ const columns = [
         title: '成交宗数(块)',
         dataIndex: 'transaction_num',
         key: 'transaction_num',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '成交面积(㎡)',
         dataIndex: 'transaction_area',
         key: 'transaction_area',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '成交均价(元/㎡) ',
         key: 'transaction_price',
         dataIndex: 'transaction_price',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '楼面价(元/㎡) ',
         key: 'floor_price',
-        dataIndex: 'floor_price'
+        dataIndex: 'floor_price',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
 ];
 

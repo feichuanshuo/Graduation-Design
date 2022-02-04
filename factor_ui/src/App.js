@@ -7,8 +7,10 @@ import {
 } from '@ant-design/icons';
 import LeftMenu from "./components/left_menu";
 import Header from "./components/header";
+import Home from "./components/content/home";
 import SupplyData from "./components/content/supply_data";
 import TransactionData from "./components/content/transaction_data";
+import PopulationData from "./components/content/population_data";
 import './App.less';
 
 const { Footer, Sider, Content } = Layout;
@@ -45,12 +47,13 @@ class App extends Component {
                     </Button>
                 </Sider>
                 <Layout className="app-layout">
-                    <header className="app-layout-header"/>
                     <Header/>
-                    <Content>
+                    <Content className="app-layout-content">
                         <Routes>
+                            <Route path={"/home"} element={<Home/>}/>
                             <Route path={"/land_information/supply_data"} element={<SupplyData/>}/>
                             <Route path={"/land_information/transaction_data"} element={<TransactionData/>}/>
+                            <Route path={"/population_data"} element={<PopulationData/>}/>
                         </Routes>
                     </Content>
                     <Footer className="app-footer">西安房地产发展影响因素分析</Footer>

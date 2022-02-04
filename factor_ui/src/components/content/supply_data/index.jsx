@@ -18,21 +18,45 @@ const columns = [
         title: '供应宗数(块)',
         dataIndex: 'supply_num',
         key: 'supply_num',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '供应面积(㎡)',
         dataIndex: 'supply_area',
         key: 'supply_area',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '供应均价(元/㎡) ',
         key: 'supply_price',
         dataIndex: 'supply_price',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
     {
         title: '楼面价(元/㎡) ',
         key: 'floor_price',
-        dataIndex: 'floor_price'
+        dataIndex: 'floor_price',
+        render: value => {
+            if(value===0)
+                return "暂无数据"
+            else
+                return value
+        },
     },
 ];
 
@@ -43,6 +67,7 @@ class SupplyData extends Component {
         chartsData:[]
     }
 
+    //获取数据
     getDataList = (len)=>{
         reqSupplyData(len).then((res)=>{
             const {data,code,msg}= res.data
@@ -161,7 +186,7 @@ class SupplyData extends Component {
                         <Option value="24">最近两年</Option>
                     </Select>
                 }
-                bodyStyle={{height:'100%',backgroundColor:'whitesmoke',padding:0,borderTop:'solid whitesmoke'}}
+                bodyStyle={{backgroundColor:'whitesmoke',padding:0,borderTop:'solid whitesmoke'}}
             >
                 <div className={"data-charts"}>
                     <DualAxes {...config} />

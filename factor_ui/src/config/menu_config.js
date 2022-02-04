@@ -12,7 +12,8 @@ import {
     AndroidOutlined,
     BankOutlined,
     PayCircleOutlined,
-    MoneyCollectOutlined
+    MoneyCollectOutlined,
+    TeamOutlined
 } from '@ant-design/icons';
 const menuList=[
     {
@@ -39,6 +40,12 @@ const menuList=[
                 path:'/land_information/transaction_data'
             },
         ]
+    },
+    {
+        title:'人口信息',
+        key:'population_data',
+        icon:TeamOutlined,
+        path:'/population_data'
     },
     {
         title:'内容管理',
@@ -96,11 +103,5 @@ const menuList=[
         icon:AndroidOutlined,
         path:'/appversion_mgt'
     },
-    {
-        title:'学校管理',
-        key:'school',
-        icon:BankOutlined,
-        path:'/school_mgt'
-    }
 ]
 export default menuList

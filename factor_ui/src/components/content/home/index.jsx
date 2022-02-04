@@ -1,0 +1,109 @@
+import React, {Component} from 'react';
+import {Card} from "antd";
+import { ChoroplethMap } from '@ant-design/maps';
+
+class Home extends Component {
+
+    state = {
+        list:[]
+    }
+
+    asyncFetch = () => {
+        fetch('https://gw.alipayobjects.com/os/alisis/geo-data-v0.1.1/administrative-data/area-list.json')
+            .then((response) => response.json())
+            .then((json) =>
+            {
+                this.setState({
+                    list:json
+                })
+            }
+                )
+            .catch((error) => {
+                console.log('fetch data failed', error);
+            });
+    };
+
+    componentDidMount() {
+        this.asyncFetch()
+    }
+
+    render() {
+        const data = this.state.list
+            .filter(({ level, parent }) => level === 'district' && parent === 610100)
+            .map((item) =>
+                Object.assign({}, item, {
+                    value: Math.random() * 5000,
+                }),
+            );
+        const config = {
+            map: {
+                type: 'mapbox',
+                style: 'blank',
+                center: [120.19382669582967, 30.258134],
+                zoom: 3,
+                pitch: 0,
+            },
+            source: {
+                data: data,
+                joinBy: {
+                    sourceField: 'adcode',
+                    geoField: 'adcode',
+                },
+            },
+            viewLevel: {
+                level: 'city',
+                adcode: 610100,
+            },
+            autoFit: true,
+            color: {
+                field: 'value',
+                value: ['#B8E1FF', '#7DAAFF', '#3D76DD', '#0047A5', '#001D70'],
+                scale: {
+                    type: 'quantize',
+                },
+            },
+            style: {
+                opacity: 1,
+                stroke: '#ccc',
+                lineWidth: 0.6,
+                lineOpacity: 1,
+            },
+            label: {
+                visible: true,
+                field: 'name',
+                style: {
+                    fill: '#000',
+                    opacity: 0.8,
+                    fontSize: 10,
+                    stroke: '#fff',
+                    strokeWidth: 1.5,
+                    textAllowOverlap: false,
+                    padding: [5, 5],
+                },
+            },
+            state: {
+                active: {
+                    stroke: 'black',
+                    lineWidth: 1,
+                },
+            },
+            tooltip: {
+                items: ['name', 'adcode', 'value'],
+            },
+            zoom: {
+                position: 'bottomright',
+            },
+            legend: {
+                position: 'bottomleft',
+            },
+        };
+        return (
+            <div style={{height:"100%"}}>
+                <ChoroplethMap {...config} />
+            </div>
+
+        );
+    }
+}
+
+export default Home;

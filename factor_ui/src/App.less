@@ -1,12 +1,15 @@
 @import '~antd/dist/antd.less';
 .root{
+  height: 100%;
+}
+.app {
   min-height: 100%;
 }
-.app-sider{
+.app-sider {
   position: fixed;
   padding-top:48px ;
   background:#fff;
-  z-index: 100;
+  z-index: 10;
   top:0;
   left: 0;
   bottom: 0;
@@ -19,9 +22,9 @@
   }
 }
 .app-layout{
-  .app-layout-header{
-    height: 48px;
-    background: transparent;
+  min-height: 100%;
+  .app-layout-content{
+    padding-top: 48px;
   }
 }
 .app-footer{
@@ -29,6 +32,7 @@
 }
 .data-card{
   margin: 10px;
+  min-height: 100%;
   .data-card-select{
     width: 200px;
   }
