@@ -1,0 +1,758 @@
+2022-02-05 19:39:43 [scrapy.utils.log] INFO: Scrapy 2.5.1 started (bot: factorSpider)
+2022-02-05 19:39:43 [scrapy.utils.log] INFO: Versions: lxml 4.7.1.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.7.0, Python 3.8.6 (tags/v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1m  14 Dec 2021), cryptography 36.0.1, Platform Windows-10-10.0.22000-SP0
+2022-02-05 19:39:43 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-02-05 19:39:43 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'factorSpider',
+ 'LOG_FILE': 'projectLog.log',
+ 'NEWSPIDER_MODULE': 'factorSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['factorSpider.spiders']}
+2022-02-05 19:39:43 [scrapy.extensions.telnet] INFO: Telnet Password: 80826bec7768a6c2
+2022-02-05 19:39:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2022-02-05 19:39:43 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-02-05 19:39:43 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-02-05 19:39:43 [scrapy.middleware] INFO: Enabled item pipelines:
+['factorSpider.pipelines.FtxPipeline', 'factorSpider.pipelines.GjsjPipeline']
+2022-02-05 19:39:43 [scrapy.core.engine] INFO: Spider opened
+2022-02-05 19:39:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-02-05 19:39:43 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-02-05 19:39:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://fdc.fang.com/robots.txt> (referer: None)
+2022-02-05 19:39:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02> (referer: None)
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 969,
+ 'supply_area': 893208.32,
+ 'supply_num': 18,
+ 'supply_price': 1428.42,
+ 'time': '2021-11-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 5540,
+ 'supply_area': 2929727.35,
+ 'supply_num': 64,
+ 'supply_price': 13252.64,
+ 'time': '2021-10-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1935,
+ 'supply_area': 2910514.05,
+ 'supply_num': 57,
+ 'supply_price': 3885.18,
+ 'time': '2021-09-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1832,
+ 'supply_area': 520047.59,
+ 'supply_num': 12,
+ 'supply_price': 3177.15,
+ 'time': '2021-08-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1562,
+ 'supply_area': 821496.05,
+ 'supply_num': 17,
+ 'supply_price': 4360.64,
+ 'time': '2021-07-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3923,
+ 'supply_area': 2262918.9,
+ 'supply_num': 43,
+ 'supply_price': 9855.59,
+ 'time': '2021-06-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3298,
+ 'supply_area': 582891.87,
+ 'supply_num': 22,
+ 'supply_price': 8040.02,
+ 'time': '2021-05-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1833,
+ 'supply_area': 2533634.46,
+ 'supply_num': 57,
+ 'supply_price': 4334.74,
+ 'time': '2021-04-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1990,
+ 'supply_area': 2273547.19,
+ 'supply_num': 45,
+ 'supply_price': 3986.15,
+ 'time': '2021-03-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 6948,
+ 'supply_area': 759921.98,
+ 'supply_num': 17,
+ 'supply_price': 16773.11,
+ 'time': '2021-02-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1998,
+ 'supply_area': 1104647.09,
+ 'supply_num': 14,
+ 'supply_price': 4762.12,
+ 'time': '2021-01-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1004,
+ 'supply_area': 6443948.53,
+ 'supply_num': 109,
+ 'supply_price': 2228.76,
+ 'time': '2020-12-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 5322,
+ 'supply_area': 423508.37,
+ 'supply_num': 11,
+ 'supply_price': 7642.72,
+ 'time': '2020-11-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2729,
+ 'supply_area': 1571503.56,
+ 'supply_num': 34,
+ 'supply_price': 8223.05,
+ 'time': '2020-10-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3115,
+ 'supply_area': 633815.46,
+ 'supply_num': 15,
+ 'supply_price': 9915.27,
+ 'time': '2020-09-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2304,
+ 'supply_area': 3438741.75,
+ 'supply_num': 74,
+ 'supply_price': 6857.83,
+ 'time': '2020-08-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3064,
+ 'supply_area': 2008291.39,
+ 'supply_num': 37,
+ 'supply_price': 8511.24,
+ 'time': '2020-07-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3699,
+ 'supply_area': 1542673.6,
+ 'supply_num': 41,
+ 'supply_price': 10039.17,
+ 'time': '2020-06-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2329,
+ 'supply_area': 930008.32,
+ 'supply_num': 23,
+ 'supply_price': 7874.37,
+ 'time': '2020-05-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1660,
+ 'supply_area': 4272947.37,
+ 'supply_num': 86,
+ 'supply_price': 4056.94,
+ 'time': '2020-04-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2504,
+ 'supply_area': 1292812.26,
+ 'supply_num': 30,
+ 'supply_price': 4504.3,
+ 'time': '2020-03-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1070,
+ 'supply_area': 1161163.35,
+ 'supply_num': 11,
+ 'supply_price': 3106.12,
+ 'time': '2020-02-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3643,
+ 'supply_area': 2206358.24,
+ 'supply_num': 58,
+ 'supply_price': 10526.75,
+ 'time': '2020-01-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2360,
+ 'supply_area': 3600636.93,
+ 'supply_num': 96,
+ 'supply_price': 7238.2,
+ 'time': '2019-12-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1586,
+ 'supply_area': 3144133.84,
+ 'supply_num': 83,
+ 'supply_price': 3568.15,
+ 'time': '2019-11-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2763,
+ 'supply_area': 2460346.55,
+ 'supply_num': 53,
+ 'supply_price': 6908.14,
+ 'time': '2019-10-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2541,
+ 'supply_area': 1645275.48,
+ 'supply_num': 33,
+ 'supply_price': 6948.22,
+ 'time': '2019-09-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3719,
+ 'supply_area': 711268.94,
+ 'supply_num': 25,
+ 'supply_price': 14033.69,
+ 'time': '2019-08-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2219,
+ 'supply_area': 4457131.34,
+ 'supply_num': 91,
+ 'supply_price': 5578.22,
+ 'time': '2019-07-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1114,
+ 'supply_area': 1003737.14,
+ 'supply_num': 24,
+ 'supply_price': 2986.95,
+ 'time': '2019-06-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2299,
+ 'supply_area': 217720.0,
+ 'supply_num': 8,
+ 'supply_price': 10329.09,
+ 'time': '2019-05-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1164,
+ 'supply_area': 2666438.63,
+ 'supply_num': 50,
+ 'supply_price': 2529.23,
+ 'time': '2019-04-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1595,
+ 'supply_area': 3681498.5,
+ 'supply_num': 66,
+ 'supply_price': 4151.16,
+ 'time': '2019-03-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1656,
+ 'supply_area': 1228405.33,
+ 'supply_num': 35,
+ 'supply_price': 4595.18,
+ 'time': '2019-02-01'}
+2022-02-05 19:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3860,
+ 'supply_area': 3447449.4,
+ 'supply_num': 58,
+ 'supply_price': 9736.91,
+ 'time': '2019-01-01'}
+2022-02-05 19:39:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02> (referer: https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=1&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02)
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2728,
+ 'time': '2021-11-01',
+ 'transaction_area': 1034456.57,
+ 'transaction_num': 20,
+ 'transaction_price': 5233.57}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3486,
+ 'time': '2021-10-01',
+ 'transaction_area': 3322512.63,
+ 'transaction_num': 71,
+ 'transaction_price': 7611.33}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1489,
+ 'time': '2021-09-01',
+ 'transaction_area': 757756.14,
+ 'transaction_num': 19,
+ 'transaction_price': 2077.36}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 383,
+ 'time': '2021-08-01',
+ 'transaction_area': 267800.58,
+ 'transaction_num': 6,
+ 'transaction_price': 566.8}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3690,
+ 'time': '2021-07-01',
+ 'transaction_area': 707468.51,
+ 'transaction_num': 12,
+ 'transaction_price': 9637.43}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3452,
+ 'time': '2021-06-01',
+ 'transaction_area': 2231218.69,
+ 'transaction_num': 49,
+ 'transaction_price': 7948.47}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3470,
+ 'time': '2021-05-01',
+ 'transaction_area': 188696.46,
+ 'transaction_num': 6,
+ 'transaction_price': 7321.97}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2412,
+ 'time': '2021-04-01',
+ 'transaction_area': 3734325.74,
+ 'transaction_num': 82,
+ 'transaction_price': 5221.36}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3186,
+ 'time': '2021-03-01',
+ 'transaction_area': 1458857.28,
+ 'transaction_num': 31,
+ 'transaction_price': 6081.13}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3547,
+ 'time': '2021-02-01',
+ 'transaction_area': 521111.03,
+ 'transaction_num': 8,
+ 'transaction_price': 4739.2}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2056,
+ 'time': '2021-01-01',
+ 'transaction_area': 1150718.17,
+ 'transaction_num': 12,
+ 'transaction_price': 3952.15}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 867,
+ 'time': '2020-12-01',
+ 'transaction_area': 6147826.81,
+ 'transaction_num': 108,
+ 'transaction_price': 1643.28}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2201,
+ 'time': '2020-11-01',
+ 'transaction_area': 365121.37,
+ 'transaction_num': 8,
+ 'transaction_price': 2781.71}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2813,
+ 'time': '2020-10-01',
+ 'transaction_area': 1664439.31,
+ 'transaction_num': 36,
+ 'transaction_price': 7811.74}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3094,
+ 'time': '2020-09-01',
+ 'transaction_area': 1375656.12,
+ 'transaction_num': 34,
+ 'transaction_price': 10041.76}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2224,
+ 'time': '2020-08-01',
+ 'transaction_area': 2969421.31,
+ 'transaction_num': 50,
+ 'transaction_price': 4317.77}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3135,
+ 'time': '2020-07-01',
+ 'transaction_area': 1769269.86,
+ 'transaction_num': 48,
+ 'transaction_price': 7212.04}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3814,
+ 'time': '2020-06-01',
+ 'transaction_area': 978379.85,
+ 'transaction_num': 25,
+ 'transaction_price': 9582.9}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1958,
+ 'time': '2020-05-01',
+ 'transaction_area': 725992.3,
+ 'transaction_num': 15,
+ 'transaction_price': 4794.07}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1544,
+ 'time': '2020-04-01',
+ 'transaction_area': 4224464.05,
+ 'transaction_num': 79,
+ 'transaction_price': 3354.52}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2244,
+ 'time': '2020-03-01',
+ 'transaction_area': 832666.91,
+ 'transaction_num': 22,
+ 'transaction_price': 3870.15}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 845,
+ 'time': '2020-02-01',
+ 'transaction_area': 346222.07,
+ 'transaction_num': 7,
+ 'transaction_price': 1869.64}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2869,
+ 'time': '2020-01-01',
+ 'transaction_area': 2156107.29,
+ 'transaction_num': 53,
+ 'transaction_price': 6397.46}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2379,
+ 'time': '2019-12-01',
+ 'transaction_area': 1620519.62,
+ 'transaction_num': 41,
+ 'transaction_price': 5372.17}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1558,
+ 'time': '2019-11-01',
+ 'transaction_area': 2170813.0,
+ 'transaction_num': 55,
+ 'transaction_price': 2913.19}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1551,
+ 'time': '2019-10-01',
+ 'transaction_area': 654920.08,
+ 'transaction_num': 11,
+ 'transaction_price': 2579.05}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2491,
+ 'time': '2019-09-01',
+ 'transaction_area': 1173300.36,
+ 'transaction_num': 34,
+ 'transaction_price': 6088.63}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1906,
+ 'time': '2019-08-01',
+ 'transaction_area': 2036956.45,
+ 'transaction_num': 44,
+ 'transaction_price': 4464.81}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3218,
+ 'time': '2019-07-01',
+ 'transaction_area': 959060.28,
+ 'transaction_num': 20,
+ 'transaction_price': 5596.29}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1286,
+ 'time': '2019-06-01',
+ 'transaction_area': 553316.79,
+ 'transaction_num': 20,
+ 'transaction_price': 3754.99}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 2196,
+ 'time': '2019-05-01',
+ 'transaction_area': 222937.24,
+ 'transaction_num': 9,
+ 'transaction_price': 8953.91}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 881,
+ 'time': '2019-04-01',
+ 'transaction_area': 4333927.17,
+ 'transaction_num': 57,
+ 'transaction_price': 1486.14}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1526,
+ 'time': '2019-03-01',
+ 'transaction_area': 2215230.5,
+ 'transaction_num': 63,
+ 'transaction_price': 3122.26}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 1409,
+ 'time': '2019-02-01',
+ 'transaction_area': 552692.05,
+ 'transaction_num': 18,
+ 'transaction_price': 4096.39}
+2022-02-05 19:39:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://fdc.fang.com/data/ajax/LandPicTable.aspx?DataType=2&LandType=&Locus=610100&Time=m&BeginTime=2019.01&EndTime=2022.02>
+{'floor_price': 3633,
+ 'time': '2019-01-01',
+ 'transaction_area': 1834074.03,
+ 'transaction_num': 35,
+ 'transaction_price': 8301.84}
+2022-02-05 19:39:45 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-02-05 19:39:45 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1036,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 3775,
+ 'downloader/response_count': 3,
+ 'downloader/response_status_count/200': 3,
+ 'elapsed_time_seconds': 1.656162,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 2, 5, 11, 39, 45, 381253),
+ 'httpcompression/response_bytes': 35002,
+ 'httpcompression/response_count': 3,
+ 'item_scraped_count': 70,
+ 'log_count/DEBUG': 73,
+ 'log_count/INFO': 10,
+ 'request_depth_max': 1,
+ 'response_received_count': 3,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 2,
+ 'scheduler/dequeued/memory': 2,
+ 'scheduler/enqueued': 2,
+ 'scheduler/enqueued/memory': 2,
+ 'start_time': datetime.datetime(2022, 2, 5, 11, 39, 43, 725091)}
+2022-02-05 19:39:45 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-02-05 19:40:22 [scrapy.utils.log] INFO: Scrapy 2.5.1 started (bot: factorSpider)
+2022-02-05 19:40:22 [scrapy.utils.log] INFO: Versions: lxml 4.7.1.0, libxml2 2.9.12, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.7.0, Python 3.8.6 (tags/v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1m  14 Dec 2021), cryptography 36.0.1, Platform Windows-10-10.0.22000-SP0
+2022-02-05 19:40:22 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-02-05 19:40:22 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'factorSpider',
+ 'LOG_FILE': 'projectLog.log',
+ 'NEWSPIDER_MODULE': 'factorSpider.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['factorSpider.spiders']}
+2022-02-05 19:40:22 [scrapy.extensions.telnet] INFO: Telnet Password: 8dd7df5c539cd32c
+2022-02-05 19:40:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2022-02-05 19:40:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-02-05 19:40:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-02-05 19:40:23 [scrapy.middleware] INFO: Enabled item pipelines:
+['factorSpider.pipelines.FtxPipeline', 'factorSpider.pipelines.GjsjPipeline']
+2022-02-05 19:40:23 [scrapy.core.engine] INFO: Spider opened
+2022-02-05 19:40:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-02-05 19:40:23 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-02-05 19:40:23 [scrapy.core.engine] DEBUG: Crawled (404) <GET https://data.stats.gov.cn/robots.txt> (referer: None)
+2022-02-05 19:40:23 [protego] DEBUG: Rule at line 22 without any user agent to enforce it on.
+2022-02-05 19:40:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1> (referer: None)
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 104363, 'population_num': 0.0, 'year': '2020'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 96867, 'population_num': 956.74, 'year': '2019'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 87125, 'population_num': 986.87, 'year': '2018'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 77774, 'population_num': 905.68, 'year': '2017'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 69611, 'population_num': 824.93, 'year': '2016'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 63193, 'population_num': 815.66, 'year': '2015'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 54097, 'population_num': 815.29, 'year': '2014'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 54388, 'population_num': 806.93, 'year': '2013'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 46688, 'population_num': 795.98, 'year': '2012'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 41678, 'population_num': 791.83, 'year': '2011'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 37871, 'population_num': 782.726, 'year': '2010'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 781.6746, 'year': '2009'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 29749, 'population_num': 772.2985, 'year': '2008'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 25013, 'population_num': 764.2527, 'year': '2007'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 20475, 'population_num': 753.1126, 'year': '2006'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 741.7263, 'year': '2005'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 725.0078, 'year': '2004'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 716.5784, 'year': '2003'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 702.5939, 'year': '2002'}
+2022-02-05 19:40:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'average_wage': 0, 'population_num': 694.8369, 'year': '2001'}
+2022-02-05 19:40:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1> (referer: https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A02%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1)
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 78.3893, 'year': '2020'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 4.0714, 'hospital_num': 0, 'year': '2020'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 87.14, 'year': '2019'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 3.8469, 'hospital_num': 0, 'year': '2019'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 71.281, 'year': '2018'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 3.3776, 'hospital_num': 343, 'year': '2018'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 72.6752, 'year': '2017'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 3.082, 'hospital_num': 329, 'year': '2017'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 83.1569, 'year': '2016'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 2.7864, 'hospital_num': 392, 'year': '2016'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 84.8958, 'year': '2015'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 2.6626, 'hospital_num': 395, 'year': '2015'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 76.6373, 'year': '2014'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 62, 'doctor_num': 2.482, 'hospital_num': 381, 'year': '2014'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 75.2682, 'year': '2013'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 49, 'doctor_num': 2.3885, 'hospital_num': 381, 'year': '2013'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 72.3961, 'year': '2012'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 31, 'doctor_num': 2.3051, 'hospital_num': 376, 'year': '2012'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 68.5232, 'year': '2011'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 28, 'doctor_num': 2.1551, 'hospital_num': 368, 'year': '2011'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 73.435, 'year': '2010'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 31, 'doctor_num': 1.5047, 'hospital_num': 412, 'year': '2010'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 63.22, 'year': '2009'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 14, 'doctor_num': 1.4694, 'hospital_num': 415, 'year': '2009'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 60.1, 'year': '2008'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 39, 'doctor_num': 1.8066, 'hospital_num': 432, 'year': '2008'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 62.4403, 'year': '2007'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 39, 'doctor_num': 1.2895, 'hospital_num': 459, 'year': '2007'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 51.401, 'year': '2006'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 39, 'doctor_num': 1.4929, 'hospital_num': 480, 'year': '2006'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 0.0, 'year': '2005'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 0.0, 'hospital_num': 0, 'year': '2005'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 0.0, 'year': '2004'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 0.0, 'hospital_num': 0, 'year': '2004'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 0.0, 'year': '2003'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 0.0, 'hospital_num': 0, 'year': '2003'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 0.0, 'year': '2002'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 0.0, 'hospital_num': 0, 'year': '2002'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'student_num': 0.0, 'year': '2001'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'cinema_num': 0, 'doctor_num': 0.0, 'hospital_num': 0, 'year': '2001'}
+2022-02-05 19:40:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1> (referer: https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A08%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1)
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 10913.0545, 'year': '2020'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 9553.929, 'year': '2019'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 8360.329, 'year': '2018'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 7497.2963, 'year': '2017'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 7035.81, 'year': '2016'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 6571.1826, 'year': '2015'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 5687.4866, 'year': '2014'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 5357.0459, 'year': '2013'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 4787.03, 'year': '2012'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 4155.65, 'year': '2011'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 3677.77, 'year': '2010'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 3084.2, 'year': '2009'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 2504.41, 'year': '2008'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 1997.56, 'year': '2007'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 1950.5281, 'year': '2006'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 1716.7574, 'year': '2005'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 1432.8641, 'year': '2004'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 1210.5607, 'year': '2003'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 988.0414, 'year': '2002'}
+2022-02-05 19:40:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'savings_balance': 800.8631, 'year': '2001'}
+2022-02-05 19:40:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1> (referer: https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A04%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1)
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.8, 'traffic_noise': 69.4, 'year': '2020'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.8, 'traffic_noise': 70.5, 'year': '2019'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 56.1, 'traffic_noise': 69.8, 'year': '2018'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 56.5, 'traffic_noise': 70.6, 'year': '2017'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.7, 'traffic_noise': 71.2, 'year': '2016'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 54.7, 'traffic_noise': 68.3, 'year': '2015'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.2, 'traffic_noise': 68.0, 'year': '2014'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.28, 'traffic_noise': 68.18, 'year': '2013'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.29, 'traffic_noise': 68.19, 'year': '2012'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.27, 'traffic_noise': 68.58, 'year': '2011'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.2, 'traffic_noise': 68.0, 'year': '2010'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.1, 'traffic_noise': 68.0, 'year': '2009'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.2, 'traffic_noise': 68.1, 'year': '2008'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.5, 'traffic_noise': 68.0, 'year': '2007'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.8, 'traffic_noise': 67.9, 'year': '2006'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.4, 'traffic_noise': 68.0, 'year': '2005'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.6, 'traffic_noise': 68.0, 'year': '2004'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 55.6, 'traffic_noise': 68.0, 'year': '2003'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 0.0, 'traffic_noise': 0.0, 'year': '2002'}
+2022-02-05 19:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=csnd&rowcode=zb&colcode=sj&wds=[%7B%22wdcode%22:%22reg%22,%22valuecode%22:%22610100%22%7D]&dfwds=[%7B%22wdcode%22:%22zb%22,%22valuecode%22:%22A0A%22%7D,%7B%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22%7D]&k1=1644061222741&h=1>
+{'ambient_noise': 0.0, 'traffic_noise': 0.0, 'year': '2001'}
+2022-02-05 19:40:26 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-02-05 19:40:26 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 3384,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 71338,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 4,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 2.870944,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 2, 5, 11, 40, 26, 157341),
+ 'item_scraped_count': 100,
+ 'log_count/DEBUG': 106,
+ 'log_count/INFO': 10,
+ 'request_depth_max': 3,
+ 'response_received_count': 5,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 4,
+ 'scheduler/dequeued/memory': 4,
+ 'scheduler/enqueued': 4,
+ 'scheduler/enqueued/memory': 4,
+ 'start_time': datetime.datetime(2022, 2, 5, 11, 40, 23, 286397)}
+2022-02-05 19:40:26 [scrapy.core.engine] INFO: Spider closed (finished)

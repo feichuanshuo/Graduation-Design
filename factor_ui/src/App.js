@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes ,Navigate} from "react-router-dom";
 import {Button, Layout} from 'antd';
 import {
     MenuUnfoldOutlined,
@@ -54,6 +54,7 @@ class App extends Component {
                             <Route path={"/land_information/supply_data"} element={<SupplyData/>}/>
                             <Route path={"/land_information/transaction_data"} element={<TransactionData/>}/>
                             <Route path={"/population_data"} element={<PopulationData/>}/>
+                            <Route path="*" element={<Navigate to="/home"/>} />
                         </Routes>
                     </Content>
                     <Footer className="app-footer">西安房地产发展影响因素分析</Footer>

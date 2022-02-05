@@ -4,7 +4,7 @@ import './index.less'
 class Header extends Component {
     render() {
         return (
-            <header className="app-layout-header-real">
+            <header className="app-layout-header apple-font">
                 西安房地产发展影响因素分析
             </header>
         );
