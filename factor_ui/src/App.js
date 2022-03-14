@@ -11,6 +11,7 @@ import Home from "./components/content/home";
 import SupplyData from "./components/content/supply_data";
 import TransactionData from "./components/content/transaction_data";
 import PopulationData from "./components/content/population_data";
+import PublicSentiment from "./components/content/public_sentiment";
 import './App.less';
 
 const { Footer, Sider, Content } = Layout;
@@ -54,6 +55,7 @@ class App extends Component {
                             <Route path={"/land_information/supply_data"} element={<SupplyData/>}/>
                             <Route path={"/land_information/transaction_data"} element={<TransactionData/>}/>
                             <Route path={"/population_data"} element={<PopulationData/>}/>
+                            <Route path={"/public_sentiment"} element={<PublicSentiment/>}/>
                             <Route path="*" element={<Navigate to="/home"/>} />
                         </Routes>
                     </Content>

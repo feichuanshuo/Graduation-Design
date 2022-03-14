@@ -48,35 +48,10 @@ const menuList=[
         path:'/population_data'
     },
     {
-        title:'内容管理',
-        key:'content_mgt',
+        title:'舆情信息',
+        key:'public_sentiment',
         icon: AppstoreOutlined ,
-        children:[
-            {
-                title:'分类管理',
-                key:'category',
-                icon:BarsOutlined,
-                path:'/content_mgt/category'
-            },
-            {
-                title:'标签管理',
-                key:'label',
-                icon:TagsOutlined,
-                path:'/content_mgt/label'
-            },
-            {
-                title:'帖子管理',
-                key:'post',
-                icon:FileTextOutlined,
-                path:'/content_mgt/post'
-            },
-            {
-                title:'评论管理',
-                key:'comment',
-                icon:CommentOutlined,
-                path:'/content_mgt/comment'
-            },
-        ]
+        path: '/public_sentiment'
     },
     {
         title:'信息管理',

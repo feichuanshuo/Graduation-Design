@@ -8,6 +8,7 @@ app.config.from_object(setting)
 app.register_blueprint(supply_data.api)
 app.register_blueprint(transaction_data.api)
 app.register_blueprint(population_data.api)
+# app.register_blueprint(crawl_spider.api)
 db.init_app(app)
 
 
