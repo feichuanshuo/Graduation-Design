@@ -70,7 +70,7 @@ class SupplyData extends Component {
     //获取数据
     getDataList = (len)=>{
         reqSupplyData(len).then((res)=>{
-            const {data,code,msg}= res.data
+            const {data,code,msg}= res
             if(code===SUCCESS_CODE){
                 let chartsData=[]
                 data.forEach((item)=>{

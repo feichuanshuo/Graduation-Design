@@ -69,8 +69,7 @@ class PopulationData extends Component {
     //获取数据
     getDataList = (len)=>{
         reqPopulationData(len).then((res)=>{
-            const {data,code,msg}= res.data
-            console.log(res.data)
+            const {data,code,msg}= res
             if(code===SUCCESS_CODE){
                 this.setState({
                     data,

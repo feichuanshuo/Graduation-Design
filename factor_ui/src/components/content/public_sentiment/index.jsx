@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
-import {Card,Input,Row,Col,Tag} from "antd";
+import {Card,Input,Row,Col,Tag,DatePicker} from "antd";
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/date-picker/locale/zh_CN';
+import {reqBaiduIndex} from "../../../api";
 import "./index.less";
-import axios from "axios";
 
 const { Search } = Input;
+const { RangePicker } = DatePicker;
 
 class PublicSentiment extends Component {
 
     baiduSearch = (value) => {
-        console.log(value);
-        axios.get(`https://index.baidu.com/api/SugApi/sug?inputword[]=${value}&ischeckType=15`).then(res => {
-            console.log(res);
+        reqBaiduIndex().then((res)=>{
+            console.log(res)
+        }).catch((err)=>{
+            console.log(err)
         })
     }
 
@@ -19,7 +23,7 @@ class PublicSentiment extends Component {
             <div>
                 <Card
                     className="data-card"
-                    title="360指数"
+                    title="百度指数"
                 >
                     <Row
                         className="search-block"
@@ -34,6 +38,12 @@ class PublicSentiment extends Component {
                             <Tag color="blue">限购</Tag>
                             <Tag color="magenta">土地供应</Tag>
                             <Tag color="green">房地产税</Tag>
+                        </Col>
+                        <Col>
+                            <RangePicker
+                                locale={locale}
+                                allowClear
+                            />
                         </Col>
                     </Row>
                 </Card>

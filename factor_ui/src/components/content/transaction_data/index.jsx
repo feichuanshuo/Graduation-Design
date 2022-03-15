@@ -68,7 +68,7 @@ class TransactionData extends Component {
 
     getDataList = (len)=>{
         reqTransactionData(len).then((res)=>{
-            const {data,code,msg}= res.data
+            const {data,code,msg}= res
             if(code===SUCCESS_CODE){
                 let chartsData=[]
                 data.forEach((item)=>{
