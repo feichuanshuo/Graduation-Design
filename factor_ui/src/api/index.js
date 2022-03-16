@@ -10,4 +10,4 @@ export const reqTransactionData = (len)=>axios.get(`${BASIC_URL}/transaction_dat
 export const reqPopulationData = (len)=>axios.get(`${BASIC_URL}/population_data?len=${len}`)
 
 //获取百度指数
-export const reqBaiduIndex = ()=>axios.get(`${BASIC_URL}/public_sentiment/baidu_index`)
+export const reqBaiduIndex = (word,start_date,end_date)=>axios.get(`${BASIC_URL}/public_sentiment/baidu_index?word=${word}&start_date=${start_date}&end_date=${end_date}`)

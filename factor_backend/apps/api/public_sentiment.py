@@ -9,6 +9,16 @@ baidu_cookie = 'BIDUPSID=7AED0A72C52D47D4F142F30255C32729; PSTM=1645587989; __yj
 
 @api.route('/baidu_index',methods=['GET'])
 def getBaiduIndex():
-    index_df = gp.baidu_search_index(word="口罩", start_date='2020-01-01', end_date='2020-03-01', cookie=baidu_cookie)
-    data = handle_data(index_df)
+    word = request.args.get('word')
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+    search_index = gp.baidu_search_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+    info_index = gp.baidu_info_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+    media_index = gp.baidu_media_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+    data = {
+        'word': word,
+        'search_index':handle_data(search_index),
+        'info_index':handle_data(info_index),
+        'media_index':handle_data(media_index)
+    }
     return Success(data)
