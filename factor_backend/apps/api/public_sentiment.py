@@ -1,5 +1,5 @@
 from flask import Blueprint,request
-from libs.response import Success
+from libs.response import Success,ServerError
 import gopup as gp
 from libs.extend import handle_data
 
@@ -9,16 +9,19 @@ baidu_cookie = 'BIDUPSID=7AED0A72C52D47D4F142F30255C32729; PSTM=1645587989; __yj
 
 @api.route('/baidu_index',methods=['GET'])
 def getBaiduIndex():
-    word = request.args.get('word')
-    start_date = request.args.get('start_date')
-    end_date = request.args.get('end_date')
-    search_index = gp.baidu_search_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
-    info_index = gp.baidu_info_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
-    media_index = gp.baidu_media_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
-    data = {
-        'word': word,
-        'search_index':handle_data(search_index),
-        'info_index':handle_data(info_index),
-        'media_index':handle_data(media_index)
-    }
-    return Success(data)
+    try:
+        word = request.args.get('word')
+        start_date = request.args.get('start_date')
+        end_date = request.args.get('end_date')
+        search_index = gp.baidu_search_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+        info_index = gp.baidu_info_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+        media_index = gp.baidu_media_index(word=word, start_date=start_date, end_date=end_date, cookie=baidu_cookie)
+        data = {
+            'word': word,
+            'search_index':handle_data(search_index),
+            'info_index':handle_data(info_index),
+            'media_index':handle_data(media_index)
+        }
+        return Success(data)
+    except BaseException:
+        return ServerError()

@@ -4,8 +4,10 @@ import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import {reqBaiduIndex} from "../../../api";
 import { Line } from '@ant-design/plots';
+import moment from 'moment';
 import "./index.less";
 import {getCurrentDate} from "../../../common/time";
+import {SUCCESS_CODE} from "../../../config";
 
 const { Search } = Input;
 const { RangePicker } = DatePicker;
@@ -32,9 +34,14 @@ class PublicSentiment extends Component {
             message.warn('请输入时间和关键词',1);
         }
         reqBaiduIndex(word,start_date,end_date).then((res)=>{
-            this.setState({
-                baidu_index: res.data
-            })
+            if (res.code === SUCCESS_CODE) {
+                this.setState({
+                    baidu_index: res.data,
+                })
+            }
+            else{
+                message.warn(res.msg,1);
+            }
         }).catch((err)=>{
             message.error('尚无此数据',1);
         })
@@ -66,6 +73,10 @@ class PublicSentiment extends Component {
                                 <RangePicker
                                     locale={locale}
                                     allowClear
+                                    value={[
+                                        this.state.baidu_index_date.start_date?moment(this.state.baidu_index_date.start_date):null,
+                                        this.state.baidu_index_date.end_date?moment(this.state.baidu_index_date.end_date):null,
+                                    ]}
                                     onChange={(value)=>{
                                         this.setState({
                                             baidu_index_date: {
