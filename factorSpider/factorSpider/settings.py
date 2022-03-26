@@ -7,6 +7,12 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+# ----------- selenium参数配置 -------------
+SELENIUM_TIMEOUT = 25           # selenium浏览器的超时时间，单位秒
+LOAD_IMAGE = True               # 是否下载图片
+WINDOW_HEIGHT = 900             # 浏览器窗口大小
+WINDOW_WIDTH = 900
+
 BOT_NAME = 'factorSpider'
 
 SPIDER_MODULES = ['factorSpider.spiders']
@@ -14,10 +20,10 @@ NEWSPIDER_MODULE = 'factorSpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'factorSpider (+http://www.yourdomain.com)'
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 LOG_FILE = 'projectLog.log'
 
@@ -46,15 +52,15 @@ LOG_FILE = 'projectLog.log'
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
+# SPIDER_MIDDLEWARES = {
 #    'factorSpider.middlewares.FactorspiderSpiderMiddleware': 543,
-#}
+# }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'factorSpider.middlewares.FactorspiderDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'factorSpider.middlewares.SeleniumMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

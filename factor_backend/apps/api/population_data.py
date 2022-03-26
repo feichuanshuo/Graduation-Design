@@ -8,7 +8,7 @@ api = Blueprint('population_data',__name__,url_prefix='/population_data')
 def population_data_list():
     len = int(request.args.get('len'))
     data = []
-    if Population_data.query.order_by(Population_data.year.desc()).all()[0:len]:
+    try:
         result = Population_data.query.order_by(Population_data.year.desc()).all()[0:len]
         for item in result:
             element = {
@@ -20,5 +20,5 @@ def population_data_list():
             }
             data.append(element)
         return Success(data)
-    else:
+    except Exception:
         return ServerError()

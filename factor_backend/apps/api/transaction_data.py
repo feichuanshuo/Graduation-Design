@@ -8,7 +8,7 @@ api = Blueprint('transaction_data',__name__,url_prefix='/transaction_data')
 def transaction_data_list():
     len = int(request.args.get('len'))
     data = []
-    if Transaction_data.query.order_by(Transaction_data.time.desc()).all()[0:len]:
+    try:
         result = Transaction_data.query.order_by(Transaction_data.time.desc()).all()[0:len]
         for item in result:
             element = {
@@ -20,5 +20,5 @@ def transaction_data_list():
             }
             data.append(element)
         return Success(data)
-    else:
+    except Exception as e:
         return ServerError()

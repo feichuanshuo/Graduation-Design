@@ -8,7 +8,7 @@ api = Blueprint('supply_data',__name__,url_prefix='/supply_data')
 def supply_data_list():
     len = int(request.args.get('len'))
     data = []
-    if Supply_data.query.order_by(Supply_data.time.desc()).all()[0:len]:
+    try:
         result = Supply_data.query.order_by(Supply_data.time.desc()).all()[0:len]
         for item in result:
             element = {
@@ -20,5 +20,5 @@ def supply_data_list():
             }
             data.append(element)
         return Success(data)
-    else:
+    except Exception:
         return ServerError()

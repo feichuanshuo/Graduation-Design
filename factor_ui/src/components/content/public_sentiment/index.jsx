@@ -16,8 +16,8 @@ const { TabPane } = Tabs;
 class PublicSentiment extends Component {
 
     state = {
+        search_word: '房产税',
         baidu_index: {
-            word: '',
             search_index: [],
             info_index: [],
             media_index: [],
@@ -27,15 +27,16 @@ class PublicSentiment extends Component {
             end_date: getCurrentDate(),
         },
     }
-    getBaiduIndex = (word) => {
+    getBaiduIndex = (search_word) => {
         const {start_date,end_date} = this.state.baidu_index_date;
 
-        if (!(word&&start_date&&end_date)) {
+        if (!(search_word&&start_date&&end_date)) {
             message.warn('请输入时间和关键词',1);
         }
-        reqBaiduIndex(word,start_date,end_date).then((res)=>{
+        reqBaiduIndex(search_word,start_date,end_date).then((res)=>{
             if (res.code === SUCCESS_CODE) {
                 this.setState({
+                    search_word,
                     baidu_index: res.data,
                 })
             }
@@ -47,12 +48,13 @@ class PublicSentiment extends Component {
         })
     }
 
+
     componentDidMount() {
         this.getBaiduIndex('房产税');
     }
 
     render() {
-        const {baidu_index} = this.state;
+        const {baidu_index,search_word} = this.state;
         const config_baidu = {
             padding: 'auto',
             xField: 'Date',
@@ -106,15 +108,15 @@ class PublicSentiment extends Component {
                         tabPosition="left"
                     >
                         <TabPane tab="搜索指数" key="1">
-                            <div className={"search-word"}>{baidu_index.word}</div>
+                            <div className={"search-word"}>{search_word}</div>
                             <Line {...config_baidu} data={baidu_index.search_index}/>
                         </TabPane>
                         <TabPane tab="资讯指数" key="2">
-                            <div className={"search-word"}>{baidu_index.word}</div>
+                            <div className={"search-word"}>{search_word}</div>
                             <Line {...config_baidu} data={baidu_index.info_index}/>
                         </TabPane>
                         <TabPane tab="媒体指数" key="3">
-                            <div className={"search-word"}>{baidu_index.word}</div>
+                            <div className={"search-word"}>{search_word}</div>
                             <Line {...config_baidu} data={baidu_index.media_index}/>
                         </TabPane>
                     </Tabs>

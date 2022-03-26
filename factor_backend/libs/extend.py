@@ -1,12 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 import json
 import time
-from datetime import datetime
 
 # 创建数据库sqlalchemy工具对象
 db = SQLAlchemy()
 
-def handle_data(data):
+def handle_date(data):
     result = []
     data = json.loads(data.to_json(date_unit='s'))
     data_dict = data[list(data.keys())[0]]
