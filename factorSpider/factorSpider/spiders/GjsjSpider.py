@@ -4,7 +4,7 @@ import json
 from factorSpider.items import PopulationdataItem,EnvironmentdataItem
 import time
 
-class GjsjspiderSpider(scrapy.Spider):
+class GjsjSpider(scrapy.Spider):
     name = 'GjsjSpider'
     allowed_domains = ['data.stats.gov.cn']
 

@@ -73,6 +73,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
    'factorSpider.pipelines.FtxPipeline': 300,
    'factorSpider.pipelines.GjsjPipeline':301,
+   'factorSpider.pipelines.DetailPipeline':302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

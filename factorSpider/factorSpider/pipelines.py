@@ -1,5 +1,5 @@
 from scrapy.utils.project import get_project_settings
-from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem,EnvironmentdataItem
+from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem,EnvironmentdataItem,DetailItem
 import pymysql
 
 
@@ -136,6 +136,67 @@ class GjsjPipeline:
                 # 执行sql语句
                 self.conn.commit()
             except:
+                # 发生错误时回滚
+                self.conn.rollback()
+
+        return item
+    def close_spider(self, spider):
+        self.cursor.close()
+        self.conn.close()
+
+# 小区详情管道
+class DetailPipeline:
+    def open_spider(self, spider):
+        settings = get_project_settings()
+        self.host = settings['DB_HOST']
+        self.port = settings['DB_PORT']
+        self.user = settings['DB_USER']
+        self.password = settings['DB_PASSWROD']
+        self.name = settings['DB_NAME']
+        self.charset = settings['DB_CHARSET']
+
+        self.connect()
+
+    def connect(self):
+        self.conn = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.name,
+            charset=self.charset
+        )
+        self.cursor = self.conn.cursor()
+
+    def process_item(self,item, spider):
+        if spider.name== 'DetailSpider' :
+            sql = ''
+            if isinstance(item,DetailItem):
+                sql = 'insert into detail_data(name,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park) values ("{}","{}",{},{},{},{},{},{},{},{},{},{},{},{})'.format(
+                    item['name'],
+                    item['address'],
+                    item['plotRatio'],
+                    item['greeningRate'],
+                    item['busStop'],
+                    item['subwayStations'],
+                    item['kindergarten'],
+                    item['primarySchool'],
+                    item['middleSchool'],
+                    item['hospital'],
+                    item['CAhospital'],
+                    item['shoppingMall'],
+                    item['supermarket'],
+                    item['park']
+                )
+
+
+            try:
+                # 执行sql语句
+                self.cursor.execute(sql)
+                # 执行sql语句
+                self.conn.commit()
+            except:
+                print('*****************数据库操作错误*****************')
                 # 发生错误时回滚
                 self.conn.rollback()
 

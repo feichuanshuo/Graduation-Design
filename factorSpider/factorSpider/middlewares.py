@@ -108,14 +108,13 @@ class FactorspiderDownloaderMiddleware:
 
 class SeleniumMiddleware:
 
-    def __init__(self):
-        global browser
-        option = ChromeOptions()
-        option.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
-        browser = webdriver.Chrome(chrome_options=option)
 
     def process_request(self, request, spider):
-        if spider.name == 'detailSpider':
+        if spider.name == 'DetailSpider':
+            global browser
+            option = ChromeOptions()
+            option.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
+            browser = webdriver.Chrome(chrome_options=option)
             # 小区详情页url列表
             hrefList = []
 
@@ -133,59 +132,62 @@ class SeleniumMiddleware:
             plotList = browser.find_elements(By.CLASS_NAME,'plotListwrap')
             for item in plotList:
                 hrefList.append(item.find_element(By.TAG_NAME,'a').get_attribute('href'))
-            # # while(browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].text== '下一页'):
-            # #     browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].click()
-            # #     plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
-            # #     for item in plotList:
-            # #         hrefList.append(item.find_element(By.TAG_NAME, 'a').get_attribute('href'))
-            # #     time.sleep(2)
+            while(browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].text== '下一页'):
+                browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].click()
+                plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
+                for item in plotList:
+                    hrefList.append(item.find_element(By.TAG_NAME, 'a').get_attribute('href'))
+                time.sleep(2)
 
             # 获取小区攻略页面数据
             for href in hrefList:
-                print(href)
                 browser.get(href)
                 btn = browser.find_element(By.ID,'orginalNaviBox').find_elements(By.TAG_NAME,'li')[2]
                 if(btn.find_element(By.TAG_NAME,'a').text == '小区攻略'):
                     detailData = {
                         'name': '',
                         'address': '',
-                        'plotRatio': '',
-                        'greeningRate': '',
-                        'busStop': '',
-                        'subwayStations': '',
-                        'kindergarten': '',
-                        'primarySchool': '',
-                        'middleSchool': '',
-                        'hospital': '',
-                        'CAhospital': '',
-                        'shoppingMall': '',
-                        'supermarket': '',
-                        'park': ''
+                        'plotRatio': 0.0,
+                        'greeningRate': 0,
+                        'busStop': 0,
+                        'subwayStations': 0,
+                        'kindergarten':0,
+                        'primarySchool': 0,
+                        'middleSchool': 0,
+                        'hospital': 0,
+                        'CAhospital': 0,
+                        'shoppingMall': 0,
+                        'supermarket': 0,
+                        'park': 0
                     }
                     detailData['name'] = browser.find_element(By.CLASS_NAME,'title_village').find_element(By.TAG_NAME,'h3').text
                     time.sleep(1)
                     btn.click()
                     detailData['address'] = browser.find_elements(By.CLASS_NAME,'flextable')[0].find_elements(By.TAG_NAME,'p')[4].text
-                    # divs = browser.find_elements(By.CLASS_NAME,'bg_wy_con')[2].find_elements(By.TAG_NAME,'div')
-                    # if(divs):
-                    #     detailData['plotRatio'] = divs[0].text
-                    #     detailData['greeningRate'] = divs[1].text
-                    scoreList = browser.find_elements(By.CLASS_NAME,'score_list')
-                    try:
-                        detailData['plotRatio'] = scoreList[-9].find_elements(By.CLASS_NAME,'num_score')[0].text
-                        detailData['greeningRate'] = scoreList[-8].find_elements(By.CLASS_NAME,'num_score')[0].text
-                    except Exception as e:
-                        pass
-                    detailData['busStop'] = scoreList[-6].find_elements(By.CLASS_NAME,'num_score')[0].text
-                    detailData['subwayStations'] = scoreList[-6].find_elements(By.CLASS_NAME,'num_score')[1].text
-                    detailData['kindergarten'] = scoreList[-5].find_elements(By.CLASS_NAME,'num_score')[0].text
-                    detailData['primarySchool'] = scoreList[-5].find_elements(By.CLASS_NAME,'num_score')[1].text
-                    detailData['middleSchool'] = scoreList[-5].find_elements(By.CLASS_NAME,'num_score')[2].text
-                    detailData['hospital'] = scoreList[-4].find_elements(By.CLASS_NAME,'num_score')[0].text
-                    detailData['CAhospital'] = scoreList[-4].find_elements(By.CLASS_NAME,'num_score')[1].text
-                    detailData['shoppingMall'] = scoreList[-3].find_elements(By.CLASS_NAME,'num_score')[0].text
-                    detailData['supermarket'] = scoreList[-3].find_elements(By.CLASS_NAME,'num_score')[1].text
-                    detailData['park'] = scoreList[-2].find_elements(By.CLASS_NAME,'num_score')[0].text
+
+                    boxList = browser.find_elements(By.CLASS_NAME,'bg_box_in')
+                    for box in boxList:
+                        boxTag =  box.find_element(By.TAG_NAME,'h3').text
+                        if boxTag == '容积率':
+                            detailData['plotRatio'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                        elif boxTag == '绿化率':
+                            detailData['greeningRate'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                        elif boxTag == '交通配置':
+                            detailData['busStop'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                            detailData['subwayStations'] = box.find_elements(By.CLASS_NAME,'num_score')[1].text
+                        elif boxTag == '教育配置':
+                            detailData['kindergarten'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                            detailData['primarySchool'] = box.find_elements(By.CLASS_NAME,'num_score')[1].text
+                            detailData['middleSchool'] = box.find_elements(By.CLASS_NAME,'num_score')[2].text
+                        elif boxTag == '医疗配套':
+                            detailData['hospital'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                            detailData['CAhospital'] = box.find_elements(By.CLASS_NAME,'num_score')[1].text
+                        elif boxTag == '购物配套':
+                            detailData['shoppingMall'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+                            detailData['supermarket'] = box.find_elements(By.CLASS_NAME,'num_score')[1].text
+                        elif boxTag == '休闲配套':
+                            detailData['park'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
+
                     time.sleep(2)
                     result.append(detailData)
 
