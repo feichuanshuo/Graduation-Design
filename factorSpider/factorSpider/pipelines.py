@@ -172,8 +172,9 @@ class DetailPipeline:
         if spider.name== 'DetailSpider' :
             sql = ''
             if isinstance(item,DetailItem):
-                sql = 'insert into detail_data(name,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park) values ("{}","{}",{},{},{},{},{},{},{},{},{},{},{},{})'.format(
+                sql = 'insert into detail_data(name,price,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park) values ("{}",{},"{}",{},{},{},{},{},{},{},{},{},{},{},{})'.format(
                     item['name'],
+                    item['price'],
                     item['address'],
                     item['plotRatio'],
                     item['greeningRate'],

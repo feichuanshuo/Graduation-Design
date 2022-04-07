@@ -32,6 +32,7 @@ class EnvironmentdataItem(scrapy.Item):
 class DetailItem(scrapy.Item):
     name = scrapy.Field()
     address = scrapy.Field()
+    price = scrapy.Field()
     plotRatio = scrapy.Field()
     greeningRate = scrapy.Field()
     busStop = scrapy.Field()
