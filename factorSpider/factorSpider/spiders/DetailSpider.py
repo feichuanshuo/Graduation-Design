@@ -24,15 +24,10 @@ class DetailSpider(scrapy.Spider):
         hrefList = response.request.meta['hrefList']
 
         # 获取小区攻略页面数据
-        flag = 0
         for href in hrefList:
-            if flag >= 200:
-                browser.close()
-                option = ChromeOptions()
-                option.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
-                browser = webdriver.Chrome(chrome_options=option)
-                flag = 0
             browser.get(href)
+            if browser.current_url != href:
+                continue
             btnList = browser.find_element(By.ID,'orginalNaviBox').find_elements(By.TAG_NAME,'li')
             btn = None
             for b in btnList:
@@ -95,6 +90,5 @@ class DetailSpider(scrapy.Spider):
 
                 time.sleep(2)
                 yield detailData
-            flag = flag + 1
         browser.close()
 

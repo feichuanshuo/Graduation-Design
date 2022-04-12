@@ -197,7 +197,6 @@ class DetailPipeline:
                 # 执行sql语句
                 self.conn.commit()
             except:
-                print('*****************数据库操作错误*****************')
                 # 发生错误时回滚
                 self.conn.rollback()
 

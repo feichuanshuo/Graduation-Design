@@ -115,6 +115,7 @@ class SeleniumMiddleware:
             option = ChromeOptions()
             option.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
             browser = webdriver.Chrome(chrome_options=option)
+
             # 小区详情页url列表
             hrefList = []
 
@@ -129,7 +130,6 @@ class SeleniumMiddleware:
                 listStr = f.read()
                 if listStr:
                     hrefList = eval(listStr)
-            print(hrefList)
 
             if hrefList == []:
 
