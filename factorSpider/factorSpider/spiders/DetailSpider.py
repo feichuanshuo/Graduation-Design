@@ -28,7 +28,10 @@ class DetailSpider(scrapy.Spider):
             browser.get(href)
             if browser.current_url != href:
                 continue
-            btnList = browser.find_element(By.ID,'orginalNaviBox').find_elements(By.TAG_NAME,'li')
+            try:
+                btnList = browser.find_element(By.ID,'orginalNaviBox').find_elements(By.TAG_NAME,'li')
+            except:
+                continue
             btn = None
             for b in btnList:
                 if b.find_element(By.TAG_NAME,'a').text == '小区攻略':

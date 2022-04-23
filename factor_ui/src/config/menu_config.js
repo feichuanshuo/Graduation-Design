@@ -2,13 +2,7 @@
 import {
     AppstoreOutlined,
     HomeOutlined,
-    MailOutlined,
-    BarsOutlined,
-    TagsOutlined,
-    FileTextOutlined,
-    CommentOutlined,
-    FrownOutlined,
-    AlertOutlined,
+    BarChartOutlined,
     AndroidOutlined,
     BankOutlined,
     PayCircleOutlined,
@@ -54,23 +48,10 @@ const menuList=[
         path: '/public_sentiment'
     },
     {
-        title:'信息管理',
-        key:'news_mgt',
-        icon: MailOutlined,
-        children:[
-            {
-                title:'申诉管理',
-                key:'complaint',
-                icon:FrownOutlined,
-                path:'/news_mgt/complaint'
-            },
-            {
-                title:'举报管理',
-                key:'report',
-                icon:AlertOutlined,
-                path:'/news_mgt/report'
-            },
-        ]
+        title:'楼市分析',
+        key:'detail_data',
+        icon: BarChartOutlined,
+        path:'/detail_data'
     },
     {
         title:'App版本管理',

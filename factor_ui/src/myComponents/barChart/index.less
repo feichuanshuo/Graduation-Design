@@ -1,0 +1,60 @@
+.bar-chart-box {
+  padding: 10px;
+  display: flex;
+  h5 {
+    height: 22px;
+    line-height: 22px;
+    margin: auto 10px;
+  }
+}
+
+.range-bar {
+  margin: auto;
+  border: #f7f7ff solid 1px;
+  background-color: #f7f7ff;
+  width: 200px;
+  border-radius: 20px
+}
+
+.value-bar {
+  height: 20px;
+  width: 0;
+  border-radius: 20px;
+  transition-property: width;
+  transition-duration: 0.5s;
+}
+
+.bar-tag {
+  padding: 0px 12px;
+  width: 138px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);;
+  box-shadow: rgb(174 174 174) 0px 0px 10px;
+  border-radius: 3px;
+  color: rgb(89, 89, 89);
+  position: fixed;
+  line-height: 12px;
+  font-size: 12px;
+  visibility: hidden;
+  .bar-tag-title {
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+  .bar-tag-content {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    .bar-tag-pattern {
+      background-color: #178dfb;
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .bar-tag-value {
+      display: inline-block;
+      float: right;
+      margin-left: 30px;
+    }
+  }
+}

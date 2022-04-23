@@ -5,15 +5,6 @@ import pymysql
 
 # 房天下管道
 class FtxPipeline:
-    # def open_spider(self, spider):
-    #     self.fp = open('supplyData.json', 'w', encoding='utf-8')
-    #
-    # def process_item(self, item, spider):
-    #     self.fp.write(str(item))
-    #     return item
-    #
-    # def close_spider(self, spider):
-    #     self.fp.close()
 
     def open_spider(self, spider):
         settings = get_project_settings()
@@ -174,6 +165,21 @@ class DetailPipeline:
             if isinstance(item,DetailItem):
                 sql = 'insert into detail_data(name,price,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park) values ("{}",{},"{}",{},{},{},{},{},{},{},{},{},{},{},{})'.format(
                     item['name'],
+                    item['price'],
+                    item['address'],
+                    item['plotRatio'],
+                    item['greeningRate'],
+                    item['busStop'],
+                    item['subwayStations'],
+                    item['kindergarten'],
+                    item['primarySchool'],
+                    item['middleSchool'],
+                    item['hospital'],
+                    item['CAhospital'],
+                    item['shoppingMall'],
+                    item['supermarket'],
+                    item['park']
+                )+' ON DUPLICATE KEY UPDATE price={},address="{}",plotRatio={},greeningRate={},busStop={},subwayStations={},kindergarten={},primarySchool={},middleSchool={},hospital={},CAhospital={},shoppingMall={},supermarket={},park={}'.format(
                     item['price'],
                     item['address'],
                     item['plotRatio'],
