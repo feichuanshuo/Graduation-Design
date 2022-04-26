@@ -3,11 +3,6 @@ import './index.less';
 
 class BarChart extends Component {
 
-    state = {
-        value:0,
-        tag: '',
-    }
-
     barTagRef = React.createRef();
     rangeBarRef = React.createRef();
     valueBarRef = React.createRef();
@@ -26,21 +21,17 @@ class BarChart extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            value:this.props.value,
-            tag:this.props.tag,
-        })
         this.valueBarRef.current.style.backgroundColor = this.props.color || 'red';
         this.rangeBarRef.current.style.width = this.props.width+'px' || '100%';
         this.valueBarRef.current.style.height = this.props.height+'px' || '20px';
         this.rangeBarRef.current.style.height = (this.props.height+2)+'px' || '22px';
         setTimeout(()=>{
             this.valueBarRef.current.style.width = this.props.value/this.props.range*this.props.width+'px';
-        },)
+        },200)
     }
 
     render() {
-        const {value,tag} = this.state
+        const {value,tag} = this.props
 
         return (
             <div className={"bar-chart-box"}>
@@ -69,5 +60,8 @@ class BarChart extends Component {
         );
     }
 }
+
+
+
 
 export default BarChart;

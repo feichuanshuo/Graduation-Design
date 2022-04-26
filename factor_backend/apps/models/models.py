@@ -29,3 +29,23 @@ class Population_data(db.Model):
     average_wage = db.Column(db.Integer)
     savings_balance = db.Column(db.Float)
     student_num = db.Column(db.Float)
+
+class Detail_data(db.Model):
+    # 定义表名
+    __tablename__ = 'detail_data'
+    # 定义字段
+    name = db.Column(db.String(30), primary_key=True, autoincrement=False)
+    address = db.Column(db.String(100))
+    price = db.Column(db.Integer)
+    plotRatio = db.Column(db.Float)
+    greeningRate = db.Column(db.Integer)
+    busStop = db.Column(db.Integer)
+    subwayStations = db.Column(db.Integer)
+    kindergarten = db.Column(db.Integer)
+    primarySchool = db.Column(db.Integer)
+    middleSchool = db.Column(db.Integer)
+    hospital = db.Column(db.Integer)
+    CAhospital = db.Column(db.Integer)
+    shoppingMall = db.Column(db.Integer)
+    supermarket = db.Column(db.Integer)
+    park = db.Column(db.Integer)

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Card} from "antd";
 import { ChoroplethMap } from '@ant-design/maps';
 
 class Home extends Component {

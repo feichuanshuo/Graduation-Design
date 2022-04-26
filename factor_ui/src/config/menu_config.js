@@ -49,7 +49,7 @@ const menuList=[
     },
     {
         title:'楼市分析',
-        key:'detail_data',
+        key:'/detail_data',
         icon: BarChartOutlined,
         path:'/detail_data'
     },

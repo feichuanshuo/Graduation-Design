@@ -15,3 +15,4 @@ def handle_date(data):
             'index': data_dict[key]
         })
     return result
+
