@@ -3,6 +3,8 @@ from main import Net
 
 
 if __name__ == '__main__':
+
+    print(torch.cuda.is_available())
     model = Net() # 把网络模型赋值给model，并且把模型放到GPU上运行
 
     model.load_state_dict(torch.load('dl.pth'))  # 加载模型参数

@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
-import {SearchOutlined} from '@ant-design/icons';
+import {SearchOutlined,CloseOutlined} from '@ant-design/icons';
 import './index.less';
 
 class SearchInput extends Component {
 
-    state = {
-        searchHint:[]
-    }
 
     inputRef = React.createRef();
+    iRef = React.createRef();
     btnRef = React.createRef();
     ulRef = React.createRef();
 
     /*操作样式函数*/
+    // btn样式相关
     btnMouseDown = (e) => {
        this.btnRef.current.style.backgroundColor = '#096dd9';
     }
@@ -26,39 +25,45 @@ class SearchInput extends Component {
         this.btnRef.current.style.backgroundColor = '#178dfb';
         this.btnRef.current.style.outline = 'none';
     }
-
+    // 搜索框失去焦点则隐藏搜索提示
     inputBlur = (e) => {
+        setTimeout(() => {
+            this.ulRef.current.style.display = 'none';
+        }, 200);
+    }
+
+    // 页面滚动则隐藏搜索提示
+    handleScroll = ()=>{
         this.ulRef.current.style.display = 'none';
     }
 
     /*操作属性函数*/
     // 输入框内容改变时
     inputChange = (e) => {
-        const {onChange} = this.props;
-        const {searchHint} = this.state;
+        e.target.value == '' ? this.iRef.current.style.display='none': this.iRef.current.style.display='block';
+        this.props.onChange(e);
         setTimeout(()=>{
-                if(searchHint.length!==0){
-                    this.ulRef.current.style.display = 'block';
-                }
-                else{
-                    this.ulRef.current.style.display = 'none';
-                }
-                onChange(e);
-            },0
-        )
-
+            const {searchHint} = this.props;
+            if(searchHint.length!==0){
+                this.ulRef.current.style.display = 'block';
+            }
+            else{
+                this.ulRef.current.style.display = 'none';
+            }
+        },100)
     }
 
-    /*暴露函数*/
-    // 设置搜索提示
-    setSearchHint = (searchHint)=>{
-        this.setState({
-            searchHint
-        })
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
     }
 
     render() {
-        const {searchHint} = this.state
+        const {searchHint,onSearch} = this.props
         return (
             <div
                 className={"detail-search"}
@@ -68,11 +73,19 @@ class SearchInput extends Component {
                     onBlur={this.inputBlur}
                     onChange={this.inputChange}
                 />
+                <i
+                    ref={this.iRef}
+                    onClick={()=>{
+                        this.inputRef.current.value=''
+                        this.iRef.current.style.display='none'
+                    }}
+                ><CloseOutlined/></i>
                 <button
                     ref={this.btnRef}
                     onMouseDown={this.btnMouseDown}
                     onMouseUp={this.btnMouseUp}
                     onMouseLeave={this.btnMouseLeave}
+                    onClick={()=>onSearch(this.inputRef.current.value)}
                 >
                     搜索
                 </button>
@@ -80,7 +93,12 @@ class SearchInput extends Component {
                     {
                         searchHint.map((item,index) => {
                             return (
-                                <li key={index}><SearchOutlined /> {item}</li>
+                                <li
+                                    key={index}
+                                    onClick={()=>{
+                                        onSearch(item)
+                                        this.inputRef.current.value=item
+                                }}><SearchOutlined /> {item}</li>
                             )
                         })
                     }

@@ -62,66 +62,64 @@ class PublicSentiment extends Component {
         };
 
         return (
-            <div>
-                <Card
-                    className="data-card"
-                    title="百度指数"
-                    extra={
-                        <Row
-                            className="search-block"
-                            gutter={10}
-                        >
-                            <Col>
-                                <RangePicker
-                                    locale={locale}
-                                    allowClear
-                                    value={[
-                                        this.state.baidu_index_date.start_date?moment(this.state.baidu_index_date.start_date):null,
-                                        this.state.baidu_index_date.end_date?moment(this.state.baidu_index_date.end_date):null,
-                                    ]}
-                                    onChange={(value)=>{
-                                        this.setState({
-                                            baidu_index_date: {
-                                                start_date: value[0].format('YYYY-MM-DD'),
-                                                end_date: value[1].format('YYYY-MM-DD')
-                                            }
-                                        })
-                                    }}
-                                    disabledDate={(date)=>{
-                                        const current = new Date().getTime()
-                                        return current - date['_d'].getTime() < 0
-                                    }}
-                                />
-                            </Col>
-                            <Col>
-                                <Search
-                                    placeholder="输入关键词探索以下吧！"
-                                    enterButton
-                                    onSearch={this.getBaiduIndex}
-                                />
-                            </Col>
-                        </Row>
-                    }
-                >
-                    <Tabs
-                        defaultActiveKey="1"
-                        tabPosition="left"
+            <Card
+                className="data-card"
+                title="百度指数"
+                extra={
+                    <Row
+                        className="search-block"
+                        gutter={10}
                     >
-                        <TabPane tab="搜索指数" key="1">
-                            <div className={"search-word"}>{search_word}</div>
-                            <Line {...config_baidu} data={baidu_index.search_index}/>
-                        </TabPane>
-                        <TabPane tab="资讯指数" key="2">
-                            <div className={"search-word"}>{search_word}</div>
-                            <Line {...config_baidu} data={baidu_index.info_index}/>
-                        </TabPane>
-                        <TabPane tab="媒体指数" key="3">
-                            <div className={"search-word"}>{search_word}</div>
-                            <Line {...config_baidu} data={baidu_index.media_index}/>
-                        </TabPane>
-                    </Tabs>
-                </Card>
-            </div>
+                        <Col>
+                            <RangePicker
+                                locale={locale}
+                                allowClear
+                                value={[
+                                    this.state.baidu_index_date.start_date?moment(this.state.baidu_index_date.start_date):null,
+                                    this.state.baidu_index_date.end_date?moment(this.state.baidu_index_date.end_date):null,
+                                ]}
+                                onChange={(value)=>{
+                                    this.setState({
+                                        baidu_index_date: {
+                                            start_date: value[0].format('YYYY-MM-DD'),
+                                            end_date: value[1].format('YYYY-MM-DD')
+                                        }
+                                    })
+                                }}
+                                disabledDate={(date)=>{
+                                    const current = new Date().getTime()
+                                    return current - date['_d'].getTime() < 0
+                                }}
+                            />
+                        </Col>
+                        <Col>
+                            <Search
+                                placeholder="输入关键词探索以下吧！"
+                                enterButton
+                                onSearch={this.getBaiduIndex}
+                            />
+                        </Col>
+                    </Row>
+                }
+            >
+                <Tabs
+                    defaultActiveKey="1"
+                    tabPosition="left"
+                >
+                    <TabPane tab="搜索指数" key="1">
+                        <div className={"search-word"}>{search_word}</div>
+                        <Line {...config_baidu} data={baidu_index.search_index}/>
+                    </TabPane>
+                    <TabPane tab="资讯指数" key="2">
+                        <div className={"search-word"}>{search_word}</div>
+                        <Line {...config_baidu} data={baidu_index.info_index}/>
+                    </TabPane>
+                    <TabPane tab="媒体指数" key="3">
+                        <div className={"search-word"}>{search_word}</div>
+                        <Line {...config_baidu} data={baidu_index.media_index}/>
+                    </TabPane>
+                </Tabs>
+            </Card>
         );
     }
 }

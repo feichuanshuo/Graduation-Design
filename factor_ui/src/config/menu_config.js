@@ -3,7 +3,6 @@ import {
     AppstoreOutlined,
     HomeOutlined,
     BarChartOutlined,
-    AndroidOutlined,
     BankOutlined,
     PayCircleOutlined,
     MoneyCollectOutlined,
@@ -52,12 +51,6 @@ const menuList=[
         key:'/detail_data',
         icon: BarChartOutlined,
         path:'/detail_data'
-    },
-    {
-        title:'App版本管理',
-        key:'app',
-        icon:AndroidOutlined,
-        path:'/appversion_mgt'
     },
 ]
 export default menuList
