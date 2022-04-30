@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Card, message, Select, Table , Row , Col } from "antd";
-import { Pie, G2 } from '@ant-design/plots';
-import {reqPopulationData} from "../../../api";
+import { Pie, G2,Line , DualAxes ,Column} from '@ant-design/plots';
+import {reqCityInformation} from "../../../api";
 import {SUCCESS_CODE} from "../../../config";
 import "./index.less"
 const { Option } = Select;
@@ -60,7 +60,7 @@ const columns = [
     },
 ];
 
-class PopulationData extends Component {
+class CityInformation extends Component {
 
     state = {
         data:[],
@@ -68,7 +68,7 @@ class PopulationData extends Component {
 
     //获取数据
     getDataList = (len)=>{
-        reqPopulationData(len).then((res)=>{
+        reqCityInformation(len).then((res)=>{
             const {data,code,msg}= res
             if(code===SUCCESS_CODE){
                 this.setState({
@@ -231,6 +231,181 @@ class PopulationData extends Component {
             ],
         };
 
+
+        let chartData3 = []
+        data.map((item)=>{
+            let newRow = {
+                name:'年末总人口',
+                num : item.population_num === 0 ? '暂无' : item.population_num,
+                year: item.year
+            }
+            chartData3.push(newRow)
+            newRow = {
+                name: '普通本专科学生',
+                num : item.student_num ===0 ? '暂无' : item.student_num,
+                year: item.year
+            }
+            chartData3.push(newRow)
+        })
+        chartData3.reverse()
+        const config3 = {
+            height:250,
+            appendPadding: 10,
+            data: chartData3,
+            xField: 'year',
+            yField: 'num',
+            seriesField: 'name',
+            yAxis: {
+                label: {
+                    formatter: (v) => `${v} 万人`,
+                },
+            },
+            legend: {
+                position: 'top',
+            },
+            smooth: true,
+            // @TODO 后续会换一种动画方式
+            animation: {
+                appear: {
+                    animation: 'path-in',
+                    duration: 5000,
+                },
+            },
+        };
+
+        const chartData4 = [...data].reverse()
+        const config4 = {
+            height:250,
+            appendPadding: 10,
+            data: [chartData4, chartData4],
+            xField: 'year',
+            yField: ['average_wage', 'savings_balance'],
+            meta: {
+                average_wage: {
+                    alias: '在岗职工平均工资(元)',
+                },
+                savings_balance: {
+                    alias: '城乡居民储蓄年末余额(亿元)',
+                },
+            },
+            geometryOptions: [
+                {
+                    geometry: 'line',
+                    color: '#5B8FF9',
+                    point: {
+                        size: 5,
+                        shape: 'circle',
+                        style: {
+                            fill: 'white',
+                            stroke: '#5B8FF9',
+                            lineWidth: 2,
+                        },
+                    },
+                },
+                {
+                    geometry: 'line',
+                    color: '#29cae4',
+                    point: {
+                        size: 5,
+                        shape: 'diamond',
+                        style: {
+                            fill: 'white',
+                            stroke: '#29cae4',
+                            lineWidth: 2,
+                        },
+                    },
+                },
+            ],
+            xAxis: {
+                label: {
+                    autoRotate: true,
+                    autoHide: false,
+                    autoEllipsis: false,
+                },
+            },
+            yAxis: {
+                area: {
+                    label: {
+                        formatter: (v) => {
+                            return `${v}`;
+                        },
+                    },
+                },
+                price: {
+                    label: {
+                        formatter: (v) => {
+                            return `${v}`;
+                        },
+                    },
+
+                },
+            },
+            legend: {
+                itemName: {
+                    formatter: (text, item) => {
+                        return item.value === 'average_wage' ? '在岗职工平均工资(元)' : '城乡居民储蓄年末余额(亿元)';
+                    },
+                },
+            },
+        };
+
+        const chartData5 = [...data].reverse()
+        const config5 = {
+            height:250,
+            appendPadding: 10,
+            data: [chartData5, chartData5],
+            xField: 'year',
+            yField: ['hospital_num', 'doctor_num'],
+            meta: {
+                hospital_num: {
+                    alias: '医院数(个)',
+                },
+                doctor_num: {
+                    alias: '执业(助理)医师数(万人)',
+                },
+            },
+            geometryOptions: [
+                {
+                    geometry: 'column',
+                    color: '#5B8FF9',
+                },
+                {
+                    geometry: 'line',
+                    color: '#5AD8A6',
+                },
+            ],
+        };
+
+        let chartData6 = []
+        data.map((item)=>{
+            let newRow = {
+                type:'道路交通等效声级dB(A)',
+                dB : item.traffic_noise,
+                year: item.year
+            }
+            chartData6.push(newRow)
+            newRow = {
+                type: '环境噪声等效声级dB(A)',
+                dB : item.ambient_noise,
+                year: item.year
+            }
+            chartData6.push(newRow)
+        })
+
+        chartData6.reverse()
+        const config6 = {
+            height:250,
+            appendPadding: 10,
+            data: chartData6,
+            xField: 'year',
+            yField: 'dB',
+            seriesField: 'type',
+            isGroup: 'true',
+            columnStyle: {
+                radius: [20, 20, 0, 0],
+            },
+        };
+
         return (
             <div>
                 <Row className={"population-charts"}>
@@ -245,6 +420,34 @@ class PopulationData extends Component {
                             男女比例
                         </div>
                         <Pie {...config2} />
+                    </Col>
+                </Row>
+                <Row className={"population-charts"}>
+                    <Col className={"chart-small chart-left"} span={12}>
+                        <div className={"chart-small-title apple-font"}>
+                            人口年数据
+                        </div>
+                        <Line {...config3} />
+                    </Col>
+                    <Col className={"chart-small chart-right"} span={12}>
+                        <div className={"chart-small-title apple-font"}>
+                            收入情况
+                        </div>
+                        <DualAxes {...config4} />
+                    </Col>
+                </Row>
+                <Row className={"population-charts"}>
+                    <Col className={"chart-small chart-left"} span={12}>
+                        <div className={"chart-small-title apple-font"}>
+                            医疗数据
+                        </div>
+                        <DualAxes {...config5} />
+                    </Col>
+                    <Col className={"chart-small chart-right"} span={12}>
+                        <div className={"chart-small-title apple-font"}>
+                            噪音情况
+                        </div>
+                        <Column {...config6} />
                     </Col>
                 </Row>
                 <Card
@@ -266,4 +469,4 @@ class PopulationData extends Component {
     }
 }
 
-export default PopulationData;
+export default CityInformation;

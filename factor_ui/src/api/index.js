@@ -6,8 +6,8 @@ import {BASIC_URL} from "../config";
 export const reqSupplyData = (len)=>axios.get(`${BASIC_URL}/supply_data?len=${len}`)
 export const reqTransactionData = (len)=>axios.get(`${BASIC_URL}/transaction_data?len=${len}`)
 
-// 获取人口信息
-export const reqPopulationData = (len)=>axios.get(`${BASIC_URL}/population_data?len=${len}`)
+// 获取城市信息
+export const reqCityInformation = (len)=>axios.get(`${BASIC_URL}/city_information?len=${len}`)
 
 // 获取百度指数
 export const reqBaiduIndex = (word,start_date,end_date)=>axios.get(`${BASIC_URL}/public_sentiment/baidu_index?word=${word}&start_date=${start_date}&end_date=${end_date}`)

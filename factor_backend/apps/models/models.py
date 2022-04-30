@@ -30,6 +30,17 @@ class Population_data(db.Model):
     savings_balance = db.Column(db.Float)
     student_num = db.Column(db.Float)
 
+class Environment_data(db.Model):
+    # 定义表名
+    __tablename__ = 'environment_data'
+    # 定义字段
+    year = db.Column(db.Date, primary_key=True, autoincrement=False)
+    hospital_num = db.Column(db.Integer)
+    doctor_num = db.Column(db.Float)
+    cinema_num = db.Column(db.Integer)
+    traffic_noise = db.Column(db.Float)
+    ambient_noise = db.Column(db.Float)
+
 class Detail_data(db.Model):
     # 定义表名
     __tablename__ = 'detail_data'

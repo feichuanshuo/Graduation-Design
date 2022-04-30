@@ -12,7 +12,7 @@ class LeftMenu extends Component {
         return mList.map((item)=>{
             if(!item.children){
                 return(
-                    <Menu.Item key={item.key} icon={<item.icon />} onClick={()=>{this.save(item.title)}}>
+                    <Menu.Item key={item.key} icon={<item.icon />}>
                         <Link to={item.path}>
                             {item.title}
                         </Link>

@@ -181,20 +181,20 @@ class DetailData extends Component {
                                 <Card>
                                     <Statistic
                                         title="政府参考单价"
-                                        value={detailData.price}
+                                        value={detailData.price===0?'暂无数据':detailData.price}
                                         precision={2}
                                         valueStyle={{color: '#3f8600', textAlign: 'center'}}
-                                        suffix="元/平方米"
+                                        suffix={detailData.price===0?'':"元/平方米"}
                                         style={{height: '60px'}}
                                     />
                                 </Card>
                                 <Card>
                                     <Statistic
-                                        title="预估价"
-                                        value={detailData.estimated_price}
+                                        title="预估成交价"
+                                        value={detailData.estimated_price===null?'暂无数据':detailData.estimated_price}
                                         precision={2}
                                         valueStyle={{color: '#cf1322', textAlign: 'center'}}
-                                        suffix="元/平方米"
+                                        suffix={detailData.estimated_price===null?'':"元/平方米"}
                                         style={{height: '60px'}}
                                     />
                                 </Card>

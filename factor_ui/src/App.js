@@ -10,7 +10,7 @@ import Header from "./components/header";
 import Home from "./components/content/home";
 import SupplyData from "./components/content/supply_data";
 import TransactionData from "./components/content/transaction_data";
-import PopulationData from "./components/content/population_data";
+import CityInformation from "./components/content/city_information";
 import PublicSentiment from "./components/content/public_sentiment";
 import DetailData from "./components/content/detail_data";
 import './App.less';
@@ -55,7 +55,7 @@ class App extends Component {
                             <Route path={"/home"} element={<Home/>}/>
                             <Route path={"/land_information/supply_data"} element={<SupplyData/>}/>
                             <Route path={"/land_information/transaction_data"} element={<TransactionData/>}/>
-                            <Route path={"/population_data"} element={<PopulationData/>}/>
+                            <Route path={"/city_information"} element={<CityInformation/>}/>
                             <Route path={"/public_sentiment"} element={<PublicSentiment/>}/>
                             <Route path={"/detail_data"} element={<DetailData/>}/>
                             <Route path="*" element={<Navigate to="/home"/>} />

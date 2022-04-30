@@ -35,10 +35,10 @@ const menuList=[
         ]
     },
     {
-        title:'人口信息',
-        key:'population_data',
+        title:'城市信息',
+        key:'city_information',
         icon:TeamOutlined,
-        path:'/population_data'
+        path:'/city_information'
     },
     {
         title:'舆情信息',
