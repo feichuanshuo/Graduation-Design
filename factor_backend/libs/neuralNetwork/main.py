@@ -4,7 +4,7 @@ from torch import nn, optim
 import matplotlib.pyplot as plt
 
 
-class Net(torch.nn.Module):  # 设计前项运算结果的网络
+class Net(torch.nn.Module):  
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Sequential(

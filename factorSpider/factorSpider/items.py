@@ -45,3 +45,4 @@ class DetailItem(scrapy.Item):
     shoppingMall = scrapy.Field()
     supermarket = scrapy.Field()
     park = scrapy.Field()
+    emotionIndex = scrapy.Field()

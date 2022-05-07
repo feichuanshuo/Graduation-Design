@@ -4,6 +4,9 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ChromeOptions
 from selenium import webdriver
+from cnsenti import Sentiment
+
+senti = Sentiment()
 
 class DetailSpider(scrapy.Spider):
     name = 'DetailSpider'
@@ -39,21 +42,22 @@ class DetailSpider(scrapy.Spider):
                     break
             if(btn != None):
                 detailData = DetailItem(
-                    name = '',
-                    price = 0,
-                    address = '',
-                    plotRatio = 0.0,
-                    greeningRate = 0,
-                    busStop = 0,
-                    subwayStations = 0,
-                    kindergarten = 0,
-                    primarySchool = 0,
-                    middleSchool = 0,
-                    hospital = 0,
-                    CAhospital = 0,
-                    shoppingMall = 0,
-                    supermarket = 0,
-                    park = 0
+                    name='',
+                    price=0,
+                    address='',
+                    plotRatio=0.0,
+                    greeningRate=0,
+                    busStop=0,
+                    subwayStations=0,
+                    kindergarten=0,
+                    primarySchool=0,
+                    middleSchool=0,
+                    hospital=0,
+                    CAhospital=0,
+                    shoppingMall=0,
+                    supermarket=0,
+                    park=0,
+                    emotionIndex = 0.0
                 )
                 detailData['name'] = browser.find_element(By.CLASS_NAME,'title_village').find_element(By.TAG_NAME,'h3').text
                 price = browser.find_element(By.CLASS_NAME,'num_price').find_element(By.TAG_NAME,'b').text
@@ -91,6 +95,31 @@ class DetailSpider(scrapy.Spider):
                     elif boxTag == '休闲配套':
                         detailData['park'] = box.find_elements(By.CLASS_NAME,'num_score')[0].text
 
+                try:
+                    btnList = browser.find_element(By.ID, 'orginalNaviBox').find_elements(By.TAG_NAME, 'li')
+                except:
+                    continue
+                btn = None
+                for b in btnList:
+                    if b.find_element(By.TAG_NAME, 'a').text == '小区点评':
+                        btn = b
+                        break
+
+                if(btn!=None):
+                    btn.click()
+                    emotionIndex = 0
+                    try:
+                        text_yelpList = browser.find_element(By.CLASS_NAME,'yelp_box').find_elements(By.CLASS_NAME,'text_yelp')
+                        for text_yelp in text_yelpList:
+
+                            comment = text_yelp.find_element(By.TAG_NAME,'a').text
+                            result = senti.sentiment_calculate(comment)
+                            eIndex = result['pos'] - result['neg']
+                            emotionIndex = emotionIndex + eIndex
+                    except:
+                        emotionIndex = 0
+                    print(emotionIndex)
+                    detailData['emotionIndex'] = emotionIndex
                 time.sleep(2)
                 yield detailData
         browser.close()

@@ -163,7 +163,7 @@ class DetailPipeline:
         if spider.name== 'DetailSpider' :
             sql = ''
             if isinstance(item,DetailItem):
-                sql = 'insert into detail_data(name,price,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park) values ("{}",{},"{}",{},{},{},{},{},{},{},{},{},{},{},{})'.format(
+                sql = 'insert into detail_data(name,price,address,plotRatio,greeningRate,busStop,subwayStations,kindergarten,primarySchool,middleSchool,hospital,CAhospital,shoppingMall,supermarket,park,emotionIndex) values ("{}",{},"{}",{},{},{},{},{},{},{},{},{},{},{},{},{})'.format(
                     item['name'],
                     item['price'],
                     item['address'],
@@ -178,8 +178,9 @@ class DetailPipeline:
                     item['CAhospital'],
                     item['shoppingMall'],
                     item['supermarket'],
-                    item['park']
-                )+' ON DUPLICATE KEY UPDATE price={},address="{}",plotRatio={},greeningRate={},busStop={},subwayStations={},kindergarten={},primarySchool={},middleSchool={},hospital={},CAhospital={},shoppingMall={},supermarket={},park={}'.format(
+                    item['park'],
+                    item['emotionIndex']
+                )+' ON DUPLICATE KEY UPDATE price={},address="{}",plotRatio={},greeningRate={},busStop={},subwayStations={},kindergarten={},primarySchool={},middleSchool={},hospital={},CAhospital={},shoppingMall={},supermarket={},park={},emotionIndex={}'.format(
                     item['price'],
                     item['address'],
                     item['plotRatio'],
@@ -193,7 +194,8 @@ class DetailPipeline:
                     item['CAhospital'],
                     item['shoppingMall'],
                     item['supermarket'],
-                    item['park']
+                    item['park'],
+                    item['emotionIndex']
                 )
 
 
