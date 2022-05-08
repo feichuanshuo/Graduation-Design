@@ -60,3 +60,4 @@ class Detail_data(db.Model):
     shoppingMall = db.Column(db.Integer)
     supermarket = db.Column(db.Integer)
     park = db.Column(db.Integer)
+    emotionIndex = db.Column(db.Float)

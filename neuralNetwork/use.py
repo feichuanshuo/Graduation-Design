@@ -9,6 +9,6 @@ if __name__ == '__main__':
 
     model.load_state_dict(torch.load('dl.pth'))  # 加载模型参数
     model.eval()
-    xlist = torch.tensor([[2,30,5,62,107,31,12,9,34,957,11]], dtype=torch.float32)
+    xlist = torch.tensor([[2,30,5,62,107,31,12,9,34,957,11,0]], dtype=torch.float32)
 
     print(model(xlist).item())

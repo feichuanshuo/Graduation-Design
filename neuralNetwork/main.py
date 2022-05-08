@@ -7,7 +7,7 @@ class Net(torch.nn.Module):  # 设计前项运算结果的网络
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Sequential(
-            nn.Linear(11, 16),
+            nn.Linear(12, 16),
             nn.ReLU(),
             nn.Linear(16, 32),
             nn.ReLU(),
@@ -44,7 +44,7 @@ if __name__ == '__main__' :
     # 使用 cursor() 方法创建一个游标对象 cursor
     cursor = db.cursor()
 
-    sql = "SELECT * FROM detail_data WHERE price!=0 and plotRatio!=0 and greeningRate!=1"
+    sql = "SELECT * FROM detail_data WHERE price!=0 and plotRatio!=0 and greeningRate!=10 and emotionIndex is not null"
 
     try:
         # 执行SQL语句
@@ -66,6 +66,7 @@ if __name__ == '__main__' :
             rowdata.append(row[12])
             rowdata.append(row[13])
             rowdata.append(row[14])
+            rowdata.append(row[17])
             dataList.append(rowdata)
 
 

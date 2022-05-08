@@ -28,7 +28,8 @@ def getDetailData():
                 result.hospital,
                 result.shoppingMall,
                 result.supermarket,
-                result.park
+                result.park,
+                result.emotionIndex
             ]])
         data = {
             'name': result.name,
