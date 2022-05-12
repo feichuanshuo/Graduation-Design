@@ -46,3 +46,10 @@ class DetailItem(scrapy.Item):
     supermarket = scrapy.Field()
     park = scrapy.Field()
     emotionIndex = scrapy.Field()
+
+class PoHpItem(scrapy.Item):
+    date = scrapy.Field()
+    price = scrapy.Field()
+    baidu_search_index = scrapy.Field()
+    baidu_info_index = scrapy.Field()
+    baidu_media_index = scrapy.Field()

@@ -1,3 +1,4 @@
+# 小区详情爬虫
 import scrapy
 from factorSpider.items import DetailItem
 import time
