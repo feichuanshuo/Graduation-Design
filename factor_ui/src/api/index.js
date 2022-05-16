@@ -9,8 +9,8 @@ export const reqTransactionData = (len)=>axios.get(`${BASIC_URL}/transaction_dat
 // 获取城市信息
 export const reqCityInformation = (len)=>axios.get(`${BASIC_URL}/city_information?len=${len}`)
 
-// 获取百度指数
-export const reqBaiduIndex = (word,start_date,end_date)=>axios.get(`${BASIC_URL}/public_sentiment/baidu_index?word=${word}&start_date=${start_date}&end_date=${end_date}`)
+// 获取舆情房价
+export const reqSentimentData = (start_date,end_date)=>axios.get(`${BASIC_URL}/sentiment_data?start_date=${start_date}&end_date=${end_date}`)
 
 // 获取小区详情
 export const reqDetailData = (name)=>axios.get(`${BASIC_URL}/detail/detail_data?name=${name}`)

@@ -1,5 +1,5 @@
 from scrapy.utils.project import get_project_settings
-from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem,EnvironmentdataItem,DetailItem
+from factorSpider.items import SupplydataItem,TransactiondataItem,PopulationdataItem,EnvironmentdataItem,DetailItem,PoHpItem
 import pymysql
 
 
@@ -209,6 +209,57 @@ class DetailPipeline:
                 self.conn.rollback()
 
         return item
+    def close_spider(self, spider):
+        self.cursor.close()
+        self.conn.close()
+
+# 房价舆情管道
+class PoHpPipeline:
+    def open_spider(self, spider):
+        settings = get_project_settings()
+        self.host = settings['DB_HOST']
+        self.port = settings['DB_PORT']
+        self.user = settings['DB_USER']
+        self.password = settings['DB_PASSWROD']
+        self.name = settings['DB_NAME']
+        self.charset = settings['DB_CHARSET']
+
+        self.connect()
+
+    def connect(self):
+        self.conn = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.name,
+            charset=self.charset
+        )
+        self.cursor = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        if spider.name == 'PoHpSpider':
+            sql = 'insert into sentiment_data(month,price,word_1,word_2,word_3,word_4,word_5) value("{}",{},{},{},{},{},{})'.format(
+                item['month'],
+                item['price'],
+                item['word_1'],
+                item['word_2'],
+                item['word_3'],
+                item['word_4'],
+                item['word_5']
+            )
+            try:
+                # 执行sql语句
+                self.cursor.execute(sql)
+                # 执行sql语句
+                self.conn.commit()
+            except:
+                # 发生错误时回滚
+                self.conn.rollback()
+
+        return item
+        pass
+
     def close_spider(self, spider):
         self.cursor.close()
         self.conn.close()

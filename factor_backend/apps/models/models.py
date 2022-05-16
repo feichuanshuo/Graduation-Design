@@ -61,3 +61,15 @@ class Detail_data(db.Model):
     supermarket = db.Column(db.Integer)
     park = db.Column(db.Integer)
     emotionIndex = db.Column(db.Float)
+
+class Sentiment_data(db.Model):
+    # 定义表名
+    __tablename__ = 'sentiment_data'
+    # 定义字段
+    month = db.Column(db.Date,primary_key=True,autoincrement=False)
+    price = db.Column(db.Integer)
+    word_1 = db.Column(db.Integer)
+    word_2 = db.Column(db.Integer)
+    word_3 = db.Column(db.Integer)
+    word_4 = db.Column(db.Integer)
+    word_5 = db.Column(db.Integer)

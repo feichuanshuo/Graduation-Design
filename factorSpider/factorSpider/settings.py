@@ -74,6 +74,7 @@ ITEM_PIPELINES = {
    'factorSpider.pipelines.FtxPipeline': 300,
    'factorSpider.pipelines.GjsjPipeline':301,
    'factorSpider.pipelines.DetailPipeline':302,
+   'factorSpider.pipelines.PoHpPipeline':303
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

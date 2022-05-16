@@ -48,8 +48,10 @@ class DetailItem(scrapy.Item):
     emotionIndex = scrapy.Field()
 
 class PoHpItem(scrapy.Item):
-    date = scrapy.Field()
+    month = scrapy.Field()
     price = scrapy.Field()
-    baidu_search_index = scrapy.Field()
-    baidu_info_index = scrapy.Field()
-    baidu_media_index = scrapy.Field()
+    word_1 = scrapy.Field()
+    word_2 = scrapy.Field()
+    word_3 = scrapy.Field()
+    word_4 = scrapy.Field()
+    word_5 = scrapy.Field()
