@@ -132,42 +132,42 @@ class SeleniumMiddleware:
                 if listStr:
                     hrefList = eval(listStr)
 
-            # if hrefList == []:
-            #     # 获取小区详情页url
-            #     plotList = browser.find_elements(By.CLASS_NAME,'plotListwrap')
-            #     for item in plotList:
-            #         hrefList.append(item.find_element(By.TAG_NAME,'a').get_attribute('href'))
-            #     while(browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].text== '下一页'):
-            #         browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].click()
-            #         plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
-            #         for item in plotList:
-            #             hrefList.append(item.find_element(By.TAG_NAME, 'a').get_attribute('href'))
-            #         time.sleep(2)
-            #     with open('url.txt','w') as f:
-            #         f.write(str(hrefList))
-
-            #数据填补
-            xiaoqvList = ['太白山唐镇','西安恒大雅苑','水岸花城','新城悦隽公园里','中南春溪集','开远半岛广场','龙江国际城','南飞鸿蓝庭序','天正花园','西市佳郡','泾渭馨佳苑','陕汽泾渭国际城','铁一局后村小区','华尔兹花园','后卫馨佳苑','景辰家园','锦绣新苑','曲江大观园','乾基九境城','石化厅家属院','天沣园','新城玺樾骊府别墅','逸景佲居','车城温泉花园','嘉园馨苑','龙泉花园','泽星雅龙湾','翠华路小学小区','长乐小区','东屿枫舍','东仓门小区','电力医院家属院','电力职业大学家属院','枫禾苑小区','福乐家属院','高尔夫花园','广天国际公寓','冠诚鼎和国际','高科尚都摩卡','公安未央分局西院家属院','海纳观景园','华浮宫桂园','宏府向荣新区','翰怡苑','海红佳苑','翰林新苑','华宇东原阅境','海红小区(长安)','佳和苑','金源皇家园林','假日国际公寓','嘉泰隆花园','金桂苑','开发住宅小区二区','空军西安南郊干休所','绿园小区','莲湖区地税局家属院','劳动公园家属院','绿地骊山花城别墅','美林星公寓','煤炭工业西安设计研究院住宅区','庆阳观邸','曲江明翰花园','山海丹家属楼','盛豪小区','唐品A+','天玺龙景','五龙汤花园','文华阁','西雅图翡翠城','小寨家属院','徐家湾小区','西安光机所北生活区','西安市天燃气总公司住宅小区','馨苑新世纪','雅苑东方','雅荷四季城','怡园洋房','永乐小区','远洋落子栖','雁泊台','兆丰家园','紫晶大厦']
-
             if hrefList == []:
-                plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
+                # 获取小区详情页url
+                plotList = browser.find_elements(By.CLASS_NAME,'plotListwrap')
                 for item in plotList:
-                    aTag = item.find_element(By.TAG_NAME, 'dd').find_element(By.TAG_NAME,'a')
-                    print(aTag.text)
-                    print(xiaoqvList.count(aTag.text))
-                    print(xiaoqvList.count(aTag.text) != 0)
-                    if xiaoqvList.count(aTag.text) != 0:
-                        hrefList.append(aTag.get_attribute('href'))
-                while (browser.find_element(By.CLASS_NAME, 'fanye').find_elements(By.TAG_NAME, 'a')[-2].text == '下一页'):
-                    browser.find_element(By.CLASS_NAME, 'fanye').find_elements(By.TAG_NAME, 'a')[-2].click()
+                    hrefList.append(item.find_element(By.TAG_NAME,'a').get_attribute('href'))
+                while(browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].text== '下一页'):
+                    browser.find_element(By.CLASS_NAME,'fanye').find_elements(By.TAG_NAME,'a')[-2].click()
                     plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
                     for item in plotList:
-                        aTag = item.find_element(By.TAG_NAME, 'dd').find_element(By.TAG_NAME,'a')
-                        if xiaoqvList.count(aTag.text) != 0:
-                            hrefList.append(aTag.get_attribute('href'))
+                        hrefList.append(item.find_element(By.TAG_NAME, 'a').get_attribute('href'))
                     time.sleep(2)
-                with open('url.txt', 'w') as f:
+                with open('url.txt','w') as f:
                     f.write(str(hrefList))
+
+            #数据填补
+            # xiaoqvList = ['太白山唐镇','西安恒大雅苑','水岸花城','新城悦隽公园里','中南春溪集','开远半岛广场','龙江国际城','南飞鸿蓝庭序','天正花园','西市佳郡','泾渭馨佳苑','陕汽泾渭国际城','铁一局后村小区','华尔兹花园','后卫馨佳苑','景辰家园','锦绣新苑','曲江大观园','乾基九境城','石化厅家属院','天沣园','新城玺樾骊府别墅','逸景佲居','车城温泉花园','嘉园馨苑','龙泉花园','泽星雅龙湾','翠华路小学小区','长乐小区','东屿枫舍','东仓门小区','电力医院家属院','电力职业大学家属院','枫禾苑小区','福乐家属院','高尔夫花园','广天国际公寓','冠诚鼎和国际','高科尚都摩卡','公安未央分局西院家属院','海纳观景园','华浮宫桂园','宏府向荣新区','翰怡苑','海红佳苑','翰林新苑','华宇东原阅境','海红小区(长安)','佳和苑','金源皇家园林','假日国际公寓','嘉泰隆花园','金桂苑','开发住宅小区二区','空军西安南郊干休所','绿园小区','莲湖区地税局家属院','劳动公园家属院','绿地骊山花城别墅','美林星公寓','煤炭工业西安设计研究院住宅区','庆阳观邸','曲江明翰花园','山海丹家属楼','盛豪小区','唐品A+','天玺龙景','五龙汤花园','文华阁','西雅图翡翠城','小寨家属院','徐家湾小区','西安光机所北生活区','西安市天燃气总公司住宅小区','馨苑新世纪','雅苑东方','雅荷四季城','怡园洋房','永乐小区','远洋落子栖','雁泊台','兆丰家园','紫晶大厦']
+
+            # if hrefList == []:
+            #     plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
+            #     for item in plotList:
+            #         aTag = item.find_element(By.TAG_NAME, 'dd').find_element(By.TAG_NAME,'a')
+            #         print(aTag.text)
+            #         print(xiaoqvList.count(aTag.text))
+            #         print(xiaoqvList.count(aTag.text) != 0)
+            #         if xiaoqvList.count(aTag.text) != 0:
+            #             hrefList.append(aTag.get_attribute('href'))
+            #     while (browser.find_element(By.CLASS_NAME, 'fanye').find_elements(By.TAG_NAME, 'a')[-2].text == '下一页'):
+            #         browser.find_element(By.CLASS_NAME, 'fanye').find_elements(By.TAG_NAME, 'a')[-2].click()
+            #         plotList = browser.find_elements(By.CLASS_NAME, 'plotListwrap')
+            #         for item in plotList:
+            #             aTag = item.find_element(By.TAG_NAME, 'dd').find_element(By.TAG_NAME,'a')
+            #             if xiaoqvList.count(aTag.text) != 0:
+            #                 hrefList.append(aTag.get_attribute('href'))
+            #         time.sleep(2)
+            #     with open('url.txt', 'w') as f:
+            #         f.write(str(hrefList))
 
             request.meta['hrefList'] = hrefList
             request.meta['browser'] = browser

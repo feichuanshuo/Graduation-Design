@@ -28,7 +28,7 @@ class DetailSpider(scrapy.Spider):
         hrefList = response.request.meta['hrefList']
 
         # 获取小区攻略页面数据
-        for href in hrefList:
+        for href in hrefList:   
             browser.get(href)
             if browser.current_url != href:
                 continue

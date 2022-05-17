@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Card, Input, Row, Col, Tabs, DatePicker, message, Button} from "antd";
+import {Card, DatePicker, message} from "antd";
 import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import {reqSentimentData} from "../../../api";
-import { Line } from '@ant-design/plots';
+import { DualAxes } from '@ant-design/plots';
 import moment from 'moment';
 import "./index.less";
 import {getCurrentDate} from "../../../common/time";
@@ -42,10 +42,61 @@ class PublicSentiment extends Component {
 
     render() {
         const {sentimentData,start_date,end_date} = this.state;
+        const priceData = sentimentData.map((item)=>{
+            return {
+                month:item.month,
+                value:item.price,
+                name:'西安市平均房价'
+            }
+        })
+        const wordsData = []
+        sentimentData.forEach((item)=>{
+            wordsData.push({
+                month:item.month,
+                value:item.word_1,
+                name:'热词:房价'
+            })
+            wordsData.push({
+                month:item.month,
+                value:item.word_2,
+                name:'热词:房价上涨'
+            })
+            wordsData.push({
+                month:item.month,
+                value:item.word_3,
+                name:'热词:房价下跌'
+            })
+            wordsData.push({
+                month:item.month,
+                value:item.word_4,
+                name:'热词:房产税'
+            })
+            wordsData.push({
+                month:item.month,
+                value:item.word_5,
+                name:'热词:房贷'
+            })
+        })
         const config = {
-            padding: 'auto',
+            data: [priceData, wordsData],
             xField: 'month',
-            yField: 'index',
+            yField: ['value', 'value'],
+            geometryOptions: [
+                {
+                    geometry: 'line',
+                    seriesField: 'name',
+                    lineStyle: {
+                        lineWidth: 3,
+                        lineDash: [5, 5],
+                    },
+                    smooth: true,
+                },
+                {
+                    geometry: 'line',
+                    seriesField: 'name',
+                    point: {},
+                },
+            ],
         };
 
         return (
@@ -75,6 +126,7 @@ class PublicSentiment extends Component {
                     />
                 }
             >
+                <DualAxes {...config} />
             </Card>
         );
     }

@@ -41,13 +41,13 @@ const menuList=[
         path:'/city_information'
     },
     {
-        title:'舆情信息',
+        title:'舆情与房价',
         key:'public_sentiment',
         icon: AppstoreOutlined ,
         path: '/public_sentiment'
     },
     {
-        title:'楼市分析',
+        title:'小区详情',
         key:'/detail_data',
         icon: BarChartOutlined,
         path:'/detail_data'
